@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="2.5" type="plugin" group="quickicon" method="upgrade">
+	<name>plg_quickicon_phpmyjoomla</name>
+	<creationDate>Nov 2018</creationDate>
+	<copyright>Copyright (c) 2014-2019. Luis Orozco Olivares / phpMyjoomla. All rights reserved.</copyright>
+	<license>GNU General Public License version 3, or later; see LICENSE.txt</license>
+	<author>Luis Orozco Olivares</author>
+    <authorEmail>luisorozoli@gmail.com</authorEmail>
+	<authorUrl>https://www.luisoroz.co</authorUrl>
+	<url>https://www.phpmyjoomla.com</url>
+	<version>1.0</version>
+	<description>PLG_QUICKICON_PHPMYJOOMLA_DESCRIPTION</description>
+
+	<!-- Installation script -->
+	<scriptfile>script.plg_quickicon_phpmyjoomla.php</scriptfile>
+
+	<files>
+		<filename plugin="phpmyjoomla">phpmyjoomla.php</filename>
+		<filename>s_icon_phpMyJoomla.png</filename>
+		<filename>index.html</filename>
+	</files>
+	<languages folder="language">
+		<language tag="en-GB">en-GB/en-GB.plg_quickicon_phpmyjoomla.ini</language>
+		<language tag="en-GB">en-GB/en-GB.plg_quickicon_phpmyjoomla.sys.ini</language>
+		<language tag="es-ES">es-ES/es-ES.plg_quickicon_phpmyjoomla.ini</language>
+		<language tag="es-ES">es-ES/es-ES.plg_quickicon_phpmyjoomla.sys.ini</language>
+	</languages>
+
+</extension>
