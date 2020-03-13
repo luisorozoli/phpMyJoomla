@@ -3,9 +3,9 @@
 /**
  * @version     1.0.0
  * @package     plg_quickicon_phpmyjoomla
- * @copyright   Copyright (c) 2014-2019. Luis Orozco Olivares / phpMyjoomla. All rights reserved.
+ * @copyright   Copyright (c) 2014-2020. Luis Orozco Olivares / phpMyjoomla. All rights reserved.
  * @license     GNU General Public License version 3 or later; see LICENSE.txt
- * @author      Luis Orozco Olivares <luisorozoli@gmail.com> - https://luisoroz.co - https://www.phpmyjoomla.com
+ * @author      Luis Orozco Olivares <luisorozoli@gmail.com> - https://www.luisorozoli.com - https://www.phpmyjoomla.com
  */
 // No direct access
 defined('_JEXEC') or die;
