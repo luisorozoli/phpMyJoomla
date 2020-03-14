@@ -38,7 +38,7 @@ class Com_phpMyJoomlaInstallerScript
 		?>
 		<div>
 			<a href="https://www.phpmyjoomla.com" target="_blank"><img src="components/com_phpmyjoomla/assets/images/phpmyjoomla/logo_small.png" alt="phpMyJoomla logo" align="left" /></a>
-			<a href="http://www.matchbyte.com" target="_blank"><img src="components/com_phpmyjoomla/assets/images/phpmyjoomla/logomatchbyteblueblack.png" alt="Matchbyte logo" align="right" /></a>
+			<a href="http://www.luisorozoli.com" target="_blank"><img src="components/com_phpmyjoomla/assets/images/phpmyjoomla/logo_luisorozoli.png" alt="Luisorozoli logo" align="right" /></a>
 		</div>
 		<div align="center">
 			<h1>phpMyJoomla Installation</h1>
