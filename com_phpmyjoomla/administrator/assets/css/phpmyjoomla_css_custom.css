@@ -288,3 +288,15 @@ div.loading-visible{
     margin-right: 0;
     margin-bottom: 10px;
 }
+
+button.dt-button.buttons-collection.buttons-page-length {
+    float: left;
+}
+
+button.dt-button.buttons-collection.buttons-colvis {
+    float: left;
+}
+
+div#example_filter {
+    float: left;
+}

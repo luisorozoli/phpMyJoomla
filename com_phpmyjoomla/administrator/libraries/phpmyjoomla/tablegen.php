@@ -214,59 +214,39 @@ class clsPhpMyJoomlaTableGen {
                         "ajax": "'.$this->generateAjaxURL($tblId).'",
                         "deferRender": true,
                         "dom": "Bfrtip",
+                        "lengthMenu": [[10, 25, 50, -1], ["10 rows", "25 rows", "50 rows", "All rows"]],
                         buttons: [
+                            "copy",
+                            "csv",
+                            "excel",
+                            "pdf",
+                            "print",
+                            "pageLength",
                             {
-                                "extend": "copy",
-                                "text": "Copy to clipboard"
-                            },
-                            {
-                                "extend": "csv",
-                                "text": "Save to CSV"
-                            },
-                            {
-                                "extend": "pdf",
-                                "text": "Save to PDF"
+                                "extend": "colvis",
+                                "postfixButtons": [ "colvisRestore" ]
                             }
+                        ],
+                        columnDefs: [
+                            {
+                                targets: -1,
+                                visible: false
+                            },
                         ],
                         select: {
                             style:    "os",
                             selector: "td:first-child"
                         },
+                        "colReorder": true,
+                        "keys": true,
+                        "stateSave": true,
                         "scrollX": true,
                         "pagingType": "full_numbers",
-                        "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
                         "sDom": "BRCTlfrtip",
                         "bAutoWidth": false,
 
-                        columns: '.$this->generateDataTableColumns($this->arrReferenceTable[$tblId]).',
+                        columns: '.$this->generateDataTableColumns($this->arrReferenceTable[$tblId]).'
 
-                        "colVis": {
-                                    showAll: "Show all"
-                                },
-                        "oTableTools":
-                        {
-                        "sPlaceHolder": "head:before",
-                                "aButtons":
-                                [
-                                        {
-                                                "sExtends": "copy",
-                                                "sButtonText": "Copy to clipboard",
-                                                "mColumns": "visible"
-                                        },
-                                        {
-                                                "sExtends": "csv",
-                                                "sButtonText": "Save to CSV",
-                                                "mColumns": "visible"
-                                        },
-                                        {
-                                                "sExtends": "pdf",
-                                                "sButtonText": "Save to PDF",
-                                                "sPdfOrientation": "landscape",
-                                                "mColumns": "visible"
-                                        }
-                                ],
-                                "sSwfPath": \'components/com_phpmyjoomla/views/managetables/tmpl/copy_csv_xls_pdf.swf\'
-                        }
                     }).columnFilter(getFilterOject());
 
                     setInterval("reloadPage()", 180000 ); //reloadPage Every 3 minutes
@@ -311,35 +291,38 @@ class clsPhpMyJoomlaTableGen {
                 },
                 "deferRender": true,
                 "dom": "Bfrtip",
+                "lengthMenu": [[10, 25, 50, -1], ["10 rows", "25 rows", "50 rows", "All rows"]],
                 buttons: [
-                    {
-                        "extend": "copy",
-                        "text": "Copy to clipboard"
-                    },
-                    {
-                        "extend": "csv",
-                        "text": "Save to CSV"
-                    },
-                    {
-                        "extend": "pdf",
-                        "text": "Save to PDF"
-                    }
-                ],
+                            "copy",
+                            "csv",
+                            "excel",
+                            "pdf",
+                            "print",
+                            "pageLength",
+                            {
+                                "extend": "colvis",
+                                "postfixButtons": [ "colvisRestore" ]
+                            }
+                        ],
+                        columnDefs: [
+                            {
+                                targets: -1,
+                                visible: false
+                            },
+                        ],
                 select: {
                     style:    "os",
                     selector: "td:first-child"
                 },
+                "colReorder": true,
+                "keys": true,
+                "stateSave": true,
                 "scrollX": true,
                 "pagingType": "full_numbers",
-                "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
                 "sDom": "BRCTlfrtip",
                 "bAutoWidth": false,
 
-                columns: '.json_encode($this->getCustomColumns($tblId, $this->customQueryString, "data")[1]).',
-
-                "colVis": {
-                            showAll: "Show all"
-                        }
+                columns: '.json_encode($this->getCustomColumns($tblId, $this->customQueryString, "data")[1]).'
 
             }).columnFilter(getFilterOject());
 

@@ -1,10 +1,10 @@
 <?php
 /**
- * @version     2.0.1
+ * @version     2.1.0
  * @package     com_phpmyjoomla
- * @copyright   Copyright (c) 2014-2019. Luis Orozco Olivares / phpMyjoomla. All rights reserved.
+ * @copyright   Copyright (c) 2014-2020. Luis Orozco Olivares / phpMyjoomla. All rights reserved.
  * @license     GNU General Public License version 3 or later; see LICENSE.txt
- * @author      Luis Orozco Olivares <luisorozoli@gmail.com> - https://luisoroz.co - https://www.phpmyjoomla.com
+ * @author      Luis Orozco Olivares <luisorozoli@gmail.com> - https://www.luisorozoli.com - https://www.phpmyjoomla.com
  */
 
 // No direct access to this file
@@ -35,6 +35,26 @@ defined('_JEXEC') or die('Restricted access');
     </p>
     <br />
     <p>
+        <span style="font-weight: bold;font-size: 20px;">## [2.1.0] - 2020-04</span><br />
+        <span style="font-weight: bold;font-size: 15px;">### Added</span><br />
+        - Excel and Print buttons.<br />
+    </p>
+    <p>
+        <span style="font-weight: bold;font-size: 15px;">### Fixed</span><br />
+        - Change Log modal scrolling.<br />
+        - Column visibility button fixed.<br />
+    </p>
+    <p>
+        <span style="font-weight: bold;font-size: 15px;">### Changed/Update</span><br />
+        - Updated css files.<br />
+        - Updated js files.<br />
+    </p>
+    <p>
+        <span style="font-weight: bold;font-size: 15px;">### Removed</span><br />
+        - Cleaned code.<br />
+    </p>
+    <br />
+    <p>
         <span style="font-weight: bold;font-size: 20px;">## [2.0.1] - 2018-11</span><br />
         <span style="font-weight: bold;font-size: 15px;">### Added</span><br />
         - Added plugin quick icon.<br />
@@ -42,7 +62,7 @@ defined('_JEXEC') or die('Restricted access');
     </p>
     <p>
         <span style="font-weight: bold;font-size: 15px;">### Removed</span><br />
-        - Clean code.<br />
+        - Cleaned code.<br />
     </p>
     <br />
     <p>
@@ -64,7 +84,7 @@ defined('_JEXEC') or die('Restricted access');
     </p>
     <p>
         <span style="font-weight: bold;font-size: 15px;">### Removed</span><br />
-        - Clean code.<br />
+        - Cleaned code.<br />
     </p>
     <br />
     <p>
@@ -98,4 +118,6 @@ defined('_JEXEC') or die('Restricted access');
         <span style="font-weight: bold;font-size: 15px;">### Added</span><br />
         - Firt version 1.0.0 (Beta).
     </p>
+    <br />
+    <br />
 </div>
