@@ -2,14 +2,14 @@
 <extension version="3.0.0" type="package" method="upgrade">
     <name>phpMyJoomla package</name>
     <creationDate>Nov 2018</creationDate>
-    <copyright>Copyright (c) 2014-2019. Luis Orozco Olivares / phpMyjoomla. All rights reserved.</copyright>
+    <copyright>Copyright (c) 2014-2020. Luis Orozco Olivares / phpMyjoomla. All rights reserved.</copyright>
     <license>GNU General Public License version 3, or later; see LICENSE.txt</license>
     <author>Luis Orozco Olivares</author>
     <authorEmail>luisorozoli@gmail.com</authorEmail>
-    <authorUrl>https://www.luisoroz.co</authorUrl>
+    <authorUrl>https://www.luisorozoli.com</authorUrl>
     <url>https://www.phpmyjoomla.com</url>
-    <version>2.0.1</version>
-    <description>phpMyJoomla installation package v.2.0.1</description>
+    <version>2.1.0</version>
+    <description>phpMyJoomla installation package v2.1.0</description>
     <packagename>phpmyjoomla</packagename>
     <packager>phpmyjoomla</packager>
     <packagerurl>https://www.phpmyjoomla.com</packagerurl>
