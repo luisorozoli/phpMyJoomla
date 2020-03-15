@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="component" version="3.0" method="upgrade">
     <name>com_phpmyjoomla</name>
-    <creationDate>Nov 2018</creationDate>
-    <copyright>Copyright (c) 2014-2019. Luis Orozco Olivares / phpMyjoomla. All rights reserved.</copyright>
+    <creationDate>April 2020</creationDate>
+    <copyright>Copyright (c) 2014-2020. Luis Orozco Olivares / phpMyjoomla. All rights reserved.</copyright>
     <license>GNU General Public License version 3, or later; see LICENSE.txt</license>
     <author>Luis Orozco Olivares</author>
     <authorEmail>luisorozoli@gmail.com</authorEmail>
-    <authorUrl>https://www.luisoroz.co</authorUrl>
+    <authorUrl>https://www.luisorozoli.com</authorUrl>
     <url>https://www.phpmyjoomla.com</url>
-    <version>2.0.1</version>
+    <version>3.0.0</version>
     <description>With this component you can manage, search and export your tables from the  Joomla! backend.</description>
 
     <!-- Installation script -->
@@ -19,6 +19,11 @@
             <file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
         </sql>
     </install>
+    <update> <!-- Runs on update -->
+        <sql>
+            <file driver="mysql" charset="utf8">sql/update.mysql.utf8.sql</file>
+        </sql>
+    </update>
     <uninstall> <!-- Runs on uninstall -->
         <sql>
             <file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
@@ -34,8 +39,11 @@
         <folder>models</folder>
         <folder>controllers</folder>
         <folder>helpers</folder>
-        <folder>assets</folder>
     </files>
+    <media destination="com_phpmyjoomla" folder="media">
+        <folder>js</folder>
+        <folder>css</folder>
+    </media>
     <languages folder="languages/site">
         <language tag="en-GB">en-GB/en-GB.com_phpmyjoomla.ini</language>
         <language tag="es-ES">es-ES/es-ES.com_phpmyjoomla.ini</language>
@@ -44,8 +52,8 @@
     <administration>
         <menu img="components/com_phpmyjoomla/assets/images/s_com_phpmyjoomla.png" >COM_PHPMYJOOMLA</menu>
         <submenu>
-            <menu link="option=com_phpmyjoomla&amp;view=managetables" view="managetables" img="components/com_phpmyjoomla/assets/images/s_managetables.png" alt="Phpmyjoomla/Managetables">COM_PHPMYJOOMLA_TITLE_MANAGETABLES</menu>
-			<menu link="option=com_phpmyjoomla&amp;view=serverss" view="serverss" img="components/com_phpmyjoomla/assets/images/s_serverss.png" alt="Phpmyjoomla/Serverss">COM_PHPMYJOOMLA_TITLE_SERVERSS</menu>
+            <menu link="option=com_phpmyjoomla&amp;view=serverss" view="serverss" alt="Phpmyjoomla/Serverss">COM_PHPMYJOOMLA_TITLE_SERVERSS</menu>
+            <menu link="option=com_phpmyjoomla&amp;view=managetables" view="managetables" alt="Phpmyjoomla/Managetables">COM_PHPMYJOOMLA_TITLE_MANAGETABLES</menu>
         </submenu>
         <files folder="administrator">
             <filename>access.xml</filename>
@@ -69,5 +77,15 @@
             <language tag="es-ES">es-ES/es-ES.com_phpmyjoomla.sys.ini</language>
         </languages>
     </administration>
+    <config>
+        <fields name="params">
+            <fieldset name="component">
+                <field name="save_history" default="0" />
+            </fieldset>
+        </fields>
+    </config>
+    <plugins>
+        <plugin group="search" plugin="phpmyjoomla"/>
+    </plugins>
     
 </extension>
