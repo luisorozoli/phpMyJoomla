@@ -11,14 +11,12 @@ defined('JPATH_BASE') or die;
 
 jimport('joomla.form.formfield');
 
-use \Joomla\CMS\Factory;
-
 /**
  * Supports an HTML select list of categories
  *
  * @since  1.6
  */
-class JFormFieldCreatedby extends \Joomla\CMS\Form\FormField
+class JFormFieldModifiedby extends \Joomla\CMS\Form\FormField
 {
 	/**
 	 * The form field type.
@@ -26,7 +24,7 @@ class JFormFieldCreatedby extends \Joomla\CMS\Form\FormField
 	 * @var        string
 	 * @since    1.6
 	 */
-	protected $type = 'createdby';
+	protected $type = 'modifiedby';
 
 	/**
 	 * Method to get the field input markup.
@@ -38,20 +36,9 @@ class JFormFieldCreatedby extends \Joomla\CMS\Form\FormField
 	protected function getInput()
 	{
 		// Initialize variables.
-		$html = array();
-
-		// Load user
-		$user_id = $this->value;
-
-		if ($user_id)
-		{
-			$user = Factory::getUser($user_id);
-		}
-		else
-		{
-			$user   = Factory::getUser();
-			$html[] = '<input type="hidden" name="' . $this->name . '" value="' . $user->id . '" />';
-		}
+		$html   = array();
+		$user   = JFactory::getUser();
+		$html[] = '<input type="hidden" name="' . $this->name . '" value="' . $user->id . '" />';
 
 		if (!$this->hidden)
 		{
