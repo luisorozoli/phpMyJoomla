@@ -13,18 +13,29 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 ### Removed
 
-## `[3.0.0] - IS COMING!`
+## [3.0.0] - 2020-04
+### Added
+- INLINE EDITING
+- Excel and Print buttons.
 
-- We are working in the new version of the component 3.0.0
-- You can download the last version in www.phpmyjoomla.com
-- Please register in the newsletter you be update about news.
+### Fixed
+- Change Log modal scrolling.
+- Column visibility button fixed.
 
-### `New features`
+### Changed/Update
+- Updated css files.
+- Updated js files.
 
-- Pluging Quick Icon.
-- Pluging Inline Editing.
-- (this list will be updated eventually)
+### Removed
+- Clean code
 
+## [2.0.1] - 2018-11
+### Added
+- Added plugin quick icon.
+- Package plugin and component.
+
+### Removed
+- Clean code
 
 ## [2.0.0] - 2016-12
 ### Changed/Update
