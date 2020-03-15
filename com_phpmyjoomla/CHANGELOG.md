@@ -11,9 +11,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 ### Removed
 
-## [2.1.0] - 2020-04
+## [3.0.0] - 2020-04
 ### Added
-- Excel and Print buttons
+- INLINE EDITING.
+- Excel and Print buttons.
 
 ### Fixed
 - Change Log modal scrolling.
@@ -24,7 +25,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Updated js files.
 
 ### Removed
-- Cleaned code.
+- Clean code
 
 ## [2.0.1] - 2018-11
 ### Added
@@ -32,7 +33,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Package plugin and component.
 
 ### Removed
-- Cleaned code
+- Clean code
 
 ## [2.0.0] - 2016-12
 ### Changed/Update
@@ -49,7 +50,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Added compatibility icons for joomla (3.x, 3.5, 3.4, 3.3) and php (7.0, 5.6, 5.5, 5.4).
 
 ### Removed
-- Cleaned code
+- Clean code
 
 ## [1.5.1] - 2016-01-11
 ### Changed/Update

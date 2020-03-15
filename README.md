@@ -13,8 +13,9 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 ### Removed
 
-## [2.1.0] - 2020-04
+## [3.0.0] - 2020-04
 ### Added
+- INLINE EDITING
 - Excel and Print buttons.
 
 ### Fixed

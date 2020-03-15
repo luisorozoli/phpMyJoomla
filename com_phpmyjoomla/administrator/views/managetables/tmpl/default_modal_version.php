@@ -35,8 +35,9 @@ defined('_JEXEC') or die('Restricted access');
     </p>
     <br />
     <p>
-        <span style="font-weight: bold;font-size: 20px;">## [2.1.0] - 2020-04</span><br />
+        <span style="font-weight: bold;font-size: 20px;">## [3.0.0] - 2020-04</span><br />
         <span style="font-weight: bold;font-size: 15px;">### Added</span><br />
+        - INLINE EDITING.<br />
         - Excel and Print buttons.<br />
     </p>
     <p>
