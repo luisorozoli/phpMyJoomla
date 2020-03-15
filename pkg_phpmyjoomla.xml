@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension version="3.0.0" type="package" method="upgrade">
     <name>phpMyJoomla package</name>
-    <creationDate>May 2020</creationDate>
+    <creationDate>April 2020</creationDate>
     <copyright>Copyright (c) 2014-2020. Luis Orozco Olivares / phpMyjoomla. All rights reserved.</copyright>
     <license>GNU General Public License version 3, or later; see LICENSE.txt</license>
     <author>Luis Orozco Olivares</author>

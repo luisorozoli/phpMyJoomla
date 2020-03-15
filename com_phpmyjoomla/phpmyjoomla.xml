@@ -9,7 +9,7 @@
     <authorUrl>https://www.luisorozoli.com</authorUrl>
     <url>https://www.phpmyjoomla.com</url>
     <version>3.0.0</version>
-    <description>With this component you can manage, search and export your tables from the  Joomla! backend.</description>
+    <description>COM_PHPMYJOOMLA_XML_DESCRIPTION</description>
 
     <!-- Installation script -->
     <scriptfile>script.com_phpmyjoomla.php</scriptfile>
