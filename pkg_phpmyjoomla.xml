@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension version="3.0.0" type="package" method="upgrade">
     <name>phpMyJoomla package</name>
-    <creationDate>Nov 2018</creationDate>
+    <creationDate>May 2020</creationDate>
     <copyright>Copyright (c) 2014-2020. Luis Orozco Olivares / phpMyjoomla. All rights reserved.</copyright>
     <license>GNU General Public License version 3, or later; see LICENSE.txt</license>
     <author>Luis Orozco Olivares</author>
     <authorEmail>luisorozoli@gmail.com</authorEmail>
     <authorUrl>https://www.luisorozoli.com</authorUrl>
     <url>https://www.phpmyjoomla.com</url>
-    <version>2.1.0</version>
-    <description>phpMyJoomla installation package v2.1.0</description>
+    <version>3.0.0</version>
+    <description>phpMyJoomla installation package v3.0.0</description>
     <packagename>phpmyjoomla</packagename>
     <packager>phpmyjoomla</packager>
     <packagerurl>https://www.phpmyjoomla.com</packagerurl>
