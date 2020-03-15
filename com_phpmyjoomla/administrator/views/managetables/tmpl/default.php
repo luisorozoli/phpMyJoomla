@@ -10,6 +10,7 @@
 
 defined('_JEXEC') or die('Restricted access');
 ?>
+
 <?php echo $this->loadTemplate('header'); ?>
 <body style="font-family: 'Arial';">
 <div id="container">

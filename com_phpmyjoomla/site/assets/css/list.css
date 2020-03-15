@@ -1,18 +1,10 @@
 /**
- * @version     CVS: 1.1.0
+ * @version     3.0.0
  * @package     com_phpmyjoomla
- * @copyright   Copyright (C) 2015. Todos los derechos reservados.
- * @license     Licencia Pública General GNU versión 2 o posterior. Consulte LICENSE.txt
- * @author      Luis Orozco & Ruel Lastimado <luisorozoli@gmail.com, rlastimado@gmail.com>
+ * @copyright   Copyright (c) 2014-2020. Luis Orozco Olivares / phpMyjoomla. All rights reserved.
+ * @license     GNU General Public License version 3 or later; see LICENSE.txt
+ * @author      Luis Orozco Olivares <luisorozoli@gmail.com> - https://www.luisorozoli.com - https://www.phpmyjoomla.com
  */
-
-.table-responsive
-{
-  display: block;
-  width: 100%;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-}
 
 table.front-end-list{
     width: 100%;
@@ -82,6 +74,7 @@ div.filter-select.show{
 }
 
 div.filter-search , div.filter-select {
+    float: left;
     clear: both;
 }
 
