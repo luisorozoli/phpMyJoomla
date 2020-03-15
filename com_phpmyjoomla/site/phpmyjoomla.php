@@ -9,17 +9,10 @@
 
 defined('_JEXEC') or die;
 
-use \Joomla\CMS\Factory;
-use \Joomla\CMS\MVC\Controller\BaseController;
-
 // Include dependancies
 jimport('joomla.application.component.controller');
 
-JLoader::registerPrefix('Phpmyjoomla', JPATH_COMPONENT);
-JLoader::register('PhpmyjoomlaController', JPATH_COMPONENT . '/controller.php');
-
-
 // Execute the task.
-$controller = BaseController::getInstance('Phpmyjoomla');
-$controller->execute(Factory::getApplication()->input->get('task'));
+$controller	= JControllerLegacy::getInstance('Phpmyjoomla');
+$controller->execute(JFactory::getApplication()->input->get('task'));
 $controller->redirect();

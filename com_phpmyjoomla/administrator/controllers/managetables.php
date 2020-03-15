@@ -1,7 +1,7 @@
 <?php
 /**
  * @version     3.0.0
- * @package     phpMyJoomla
+ * @package     com_phpmyjoomla
  * @copyright   Copyright (c) 2014-2020. Luis Orozco Olivares / phpMyjoomla. All rights reserved.
  * @license     GNU General Public License version 3 or later; see LICENSE.txt
  * @author      Luis Orozco Olivares <luisorozoli@gmail.com> - https://www.luisorozoli.com - https://www.phpmyjoomla.com
@@ -12,90 +12,39 @@ defined('_JEXEC') or die;
 
 jimport('joomla.application.component.controlleradmin');
 
-use \Joomla\Utilities\ArrayHelper;
-use \Joomla\CMS\Session\session;
-use \Joomla\CMS\Factory;
-use \Joomla\CMS\Language\Text;
-
 /**
  * Managetables list controller class.
- *
- * @since  1.6
  */
-class PhpmyjoomlaControllerManagetables extends \Joomla\CMS\MVC\Controller\AdminController
+class PhpmyjoomlaControllerManagetables extends JControllerAdmin
 {
 	/**
-	 * Method to clone existing Managetables
-	 *
-	 * @return void
-     *
-     * @throws Exception
-	 */
-	public function duplicate()
-	{
-		// Check for request forgeries
-		session::checkToken() or jexit(Text::_('JINVALID_TOKEN'));
-
-		// Get id(s)
-		$pks = $this->input->post->get('cid', array(), 'array');
-
-		try
-		{
-			if (empty($pks))
-			{
-				throw new Exception(Text::_('COM_PHPMYJOOMLA_NO_ELEMENT_SELECTED'));
-			}
-
-			ArrayHelper::toInteger($pks);
-			$model = $this->getModel();
-			$model->duplicate($pks);
-			$this->setMessage(Text::_('COM_PHPMYJOOMLA_ITEMS_SUCCESS_DUPLICATED'));
-		}
-		catch (Exception $e)
-		{
-			Factory::getApplication()->enqueueMessage($e->getMessage(), 'warning');
-		}
-
-		$this->setRedirect('index.php?option=com_phpmyjoomla&view=managetables');
-	}
-
-	/**
 	 * Proxy for getModel.
-	 *
-	 * @param   string  $name    Optional. Model name
-	 * @param   string  $prefix  Optional. Class prefix
-	 * @param   array   $config  Optional. Configuration array for model
-	 *
-	 * @return  object	The Model
-	 *
-	 * @since    1.6
+	 * @since	1.6
 	 */
-	public function getModel($name = 'managetable', $prefix = 'PhpmyjoomlaModel', $config = array())
+    public function getModel($name = 'managetable', $prefix = 'PhpmyjoomlaModel', $config = array())
 	{
 		$model = parent::getModel($name, $prefix, array('ignore_request' => true));
-
 		return $model;
 	}
-
+    
+    
 	/**
 	 * Method to save the submitted ordering values for records via AJAX.
 	 *
 	 * @return  void
 	 *
 	 * @since   3.0
-     *
-     * @throws Exception
-     */
+	 */
 	public function saveOrderAjax()
 	{
 		// Get the input
-		$input = Factory::getApplication()->input;
-		$pks   = $input->post->get('cid', array(), 'array');
+		$input = JFactory::getApplication()->input;
+		$pks = $input->post->get('cid', array(), 'array');
 		$order = $input->post->get('order', array(), 'array');
 
 		// Sanitize the input
-		ArrayHelper::toInteger($pks);
-		ArrayHelper::toInteger($order);
+		JArrayHelper::toInteger($pks);
+		JArrayHelper::toInteger($order);
 
 		// Get the model
 		$model = $this->getModel();
@@ -109,6 +58,9 @@ class PhpmyjoomlaControllerManagetables extends \Joomla\CMS\MVC\Controller\Admin
 		}
 
 		// Close the application
-		Factory::getApplication()->close();
+		JFactory::getApplication()->close();
 	}
+    
+    
+    
 }

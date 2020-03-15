@@ -1,7 +1,7 @@
 <?php
 /**
  * @version     3.0.0
- * @package     phpMyJoomla
+ * @package     com_phpmyjoomla
  * @copyright   Copyright (c) 2014-2020. Luis Orozco Olivares / phpMyjoomla. All rights reserved.
  * @license     GNU General Public License version 3 or later; see LICENSE.txt
  * @author      Luis Orozco Olivares <luisorozoli@gmail.com> - https://www.luisorozoli.com - https://www.phpmyjoomla.com
@@ -14,19 +14,13 @@ jimport('joomla.application.component.controllerform');
 
 /**
  * Managetable controller class.
- *
- * @since  1.6
  */
-class PhpmyjoomlaControllerManagetable extends \Joomla\CMS\MVC\Controller\FormController
+class PhpmyjoomlaControllerManagetable extends JControllerForm
 {
-	/**
-	 * Constructor
-	 *
-	 * @throws Exception
-	 */
-	public function __construct()
-	{
-		$this->view_list = 'managetables';
-		parent::__construct();
-	}
+
+    function __construct() {
+        $this->view_list = 'managetables';
+        parent::__construct();
+    }
+
 }
