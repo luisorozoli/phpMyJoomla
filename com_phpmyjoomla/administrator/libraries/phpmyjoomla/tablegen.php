@@ -180,8 +180,8 @@ class clsPhpMyJoomlaTableGen {
             $html .='
             var editor;
             $(document).ready(function() {
-                // disable editor for the meantime until license is acquired
-                /*editor = new $.fn.dataTable.Editor( {
+                // DISABLE/ENABLE EDITOR
+                editor = new $.fn.dataTable.Editor( {
                     ajax: {
                         url: "'.$this->generateEditAjaxURL($tblId).'",
                         data: {table:'.json_encode($this->arrReferenceTable[$tblId]).'},
@@ -190,10 +190,11 @@ class clsPhpMyJoomlaTableGen {
                     table: "#example",
                     idSrc:  "'.$this->arrReferenceTable[$tblId]['primary'].'",
                     fields: '.$this->generateEditorFields($this->arrReferenceTable[$tblId]).'
-                } );*/
+                } );
+                // END DISABLE/ENABLE EDITOR
 
-                // disable editor for the meantime until license is acquired
-                /*editor.on( \'postSubmit\', function ( e, json, data, action ) {
+                // DISABLE/ENABLE EDITOR
+                editor.on( \'postSubmit\', function ( e, json, data, action ) {
                     var jsonArray = [];
                     var jsonObject;
                     $.each(json, function(index, element) {
@@ -208,14 +209,21 @@ class clsPhpMyJoomlaTableGen {
                     } else {
                         alert("Update success!");
                     }
-                });*/
+                });
+                // END DISABLE/ENABLE EDITOR
 
                 $(\'#example\').dataTable( {
                         "ajax": "'.$this->generateAjaxURL($tblId).'",
                         "deferRender": true,
                         "dom": "Bfrtip",
                         "lengthMenu": [[10, 25, 50, -1], ["10 rows", "25 rows", "50 rows", "All rows"]],
+                        "select": true,
                         buttons: [
+                            // DISABLE/ENABLE EDITOR
+                            { extend: "create", editor: editor, className: "green" },
+                            { extend: "edit",   editor: editor, className: "orange" },
+                            { extend: "remove", editor: editor, className: "red" },
+                            // END DISABLE/ENABLE EDITOR
                             "copy",
                             "csv",
                             "excel",
@@ -233,12 +241,12 @@ class clsPhpMyJoomlaTableGen {
                                 visible: false
                             },
                         ],
-                        select: {
-                            style:    "os",
-                            selector: "td:first-child"
-                        },
+//                        select: {
+//                            style:    "os",
+//                            selector: "td:first-child"
+//                        },
+//                        "keys": true,
                         "colReorder": true,
-                        "keys": true,
                         "stateSave": true,
                         "scrollX": true,
                         "pagingType": "full_numbers",
@@ -252,10 +260,11 @@ class clsPhpMyJoomlaTableGen {
                     setInterval("reloadPage()", 180000 ); //reloadPage Every 3 minutes
                 });
 
-                // disable editor for the meantime until license is acquired
-                /*$(\'#example\').on( \'click\', \'tbody td:not(:first-child)\', function (e) {
+                // DISABLE/ENABLE EDITOR
+                $(\'#example\').on( \'click\', \'tbody td:not(:first-child)\', function (e) {
                     editor.inline( this );
-                } );*/
+                } );
+                // END DISABLE/ENABLE EDITOR
 
                 function reloadPage() {
                     var table = $(\'#example\').DataTable();
@@ -292,6 +301,7 @@ class clsPhpMyJoomlaTableGen {
                 "deferRender": true,
                 "dom": "Bfrtip",
                 "lengthMenu": [[10, 25, 50, -1], ["10 rows", "25 rows", "50 rows", "All rows"]],
+                "select": true,
                 buttons: [
                             "copy",
                             "csv",
@@ -314,8 +324,8 @@ class clsPhpMyJoomlaTableGen {
                     style:    "os",
                     selector: "td:first-child"
                 },
-                "colReorder": true,
                 "keys": true,
+                "colReorder": true,
                 "stateSave": true,
                 "scrollX": true,
                 "pagingType": "full_numbers",

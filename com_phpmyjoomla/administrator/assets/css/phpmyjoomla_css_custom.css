@@ -300,3 +300,18 @@ button.dt-button.buttons-collection.buttons-colvis {
 div#example_filter {
     float: left;
 }
+
+.dt-button.red {
+    font-weight: bold;
+    color: red;
+}
+
+.dt-button.orange {
+    font-weight: bold;
+    color: orange;
+}
+
+.dt-button.green {
+    font-weight: bold;
+    color: green;
+}

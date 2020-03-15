@@ -18,6 +18,8 @@ $doc->addStyleSheet(JURI::root() . 'administrator/components/com_phpmyjoomla/ass
 $doc->addStyleSheet(JURI::root() . 'administrator/components/com_phpmyjoomla/assets/css/buttons.dataTables.min.css');
 $doc->addStyleSheet(JURI::root() . 'administrator/components/com_phpmyjoomla/assets/css/dataTables.colReorder.css');
 $doc->addStyleSheet(JURI::root() . 'administrator/components/com_phpmyjoomla/assets/css/keyTable.dataTables.min.css');
+$doc->addStyleSheet(JURI::root() . 'administrator/components/com_phpmyjoomla/assets/css/select.dataTables.min.css');
+$doc->addStyleSheet(JURI::root() . 'administrator/components/com_phpmyjoomla/assets/css/editor.dataTables.min.css');
 $doc->addStyleSheet(JURI::root() . 'administrator/components/com_phpmyjoomla/assets/css/jquery.modal.css');
 $doc->addStyleSheet(JURI::root() . 'administrator/components/com_phpmyjoomla/assets/css/phpmyjoomla_css_custom.css');
 $doc->addStyleSheet(JURI::root() . 'administrator/components/com_phpmyjoomla/assets/css/phpmyjoomla.css');
@@ -38,14 +40,17 @@ $doc->addScript(JURI::root() . 'administrator/components/com_phpmyjoomla/assets/
 $doc->addScript(JURI::root() . 'administrator/components/com_phpmyjoomla/assets/js/buttons.colVis.min.js');
 $doc->addScript(JURI::root() . 'administrator/components/com_phpmyjoomla/assets/js/dataTables.colReorder.js');
 $doc->addScript(JURI::root() . 'administrator/components/com_phpmyjoomla/assets/js/jquery.dataTables.columnFilter.js');
+$doc->addScript(JURI::root() . 'administrator/components/com_phpmyjoomla/assets/js/dataTables.select.min.js');
 $doc->addScript(JURI::root() . 'administrator/components/com_phpmyjoomla/assets/js/dataTables.keyTable.min.js');
+
+$doc->addScript(JURI::root() . 'administrator/components/com_phpmyjoomla/assets/js/editor/dataTables.editor.min.js');
+
 $doc->addScript(JURI::root() . 'administrator/components/com_phpmyjoomla/assets/js/jquery.modal.min.js');
 $doc->addScript(JURI::root() . 'administrator/components/com_phpmyjoomla/assets/js/phpmyjoomla_js_custom.js');
 
 $doc->addScript(JURI::root() . 'media/jui/js/jquery.min.js');
 $doc->addScript(JURI::root() . 'media/jui/js/jquery-noconflict.js');
 $doc->addScript(JURI::root() . 'media/jui/js/jquery-migrate.min.js');
-//$doc->addScript(JURI::root() . 'media/jui/js/bootstrap.min.js'); // removed becuase it is causing admin menu dropdowns to not work
 $doc->addScript(JURI::root() . 'media/system/js/core.js');
 ?>
 <div id="ajax_shield" name="export_shield" class="clean_background"></div>

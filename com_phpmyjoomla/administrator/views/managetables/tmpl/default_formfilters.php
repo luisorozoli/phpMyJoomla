@@ -86,7 +86,10 @@ defined('_JEXEC') or die('Restricted access');
                 </div>
             </div>
         </div>
-        <div class="span4 savedlistqueries">
+        <div class="alert alert-warning alert-dismissible span4 savedlistqueries">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <h3><strong><?php echo JText::_('COM_PHPMYJOOMLA_QUICKCONNECTION_TEXT_TITLE_EDITOR');?></strong></h3>
+            <p><?php echo JText::_('COM_PHPMYJOOMLA_QUICKCONNECTION_TEXT_EDITOR_WARNING');?></p>
         </div>
     </form>
 </div>
