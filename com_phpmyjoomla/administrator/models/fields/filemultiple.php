@@ -9,7 +9,6 @@
 
 defined('JPATH_BASE') or die;
 
-jimport('joomla.html.html');
 jimport('joomla.form.formfield');
 
 /**
@@ -17,7 +16,7 @@ jimport('joomla.form.formfield');
  *
  * @since  1.6
  */
-class JFormFieldCustomField extends \Joomla\CMS\Form\FormField
+class JFormFieldFileMultiple extends \Joomla\CMS\Form\FormField
 {
 	/**
 	 * The form field type.
@@ -25,7 +24,7 @@ class JFormFieldCustomField extends \Joomla\CMS\Form\FormField
 	 * @var        string
 	 * @since    1.6
 	 */
-	protected $type = 'text';
+	protected $type = 'file';
 
 	/**
 	 * Method to get the field input markup.
@@ -37,8 +36,8 @@ class JFormFieldCustomField extends \Joomla\CMS\Form\FormField
 	protected function getInput()
 	{
 		// Initialize variables.
-		$html = array();
+		$html = '<input type="file" name="' . $this->name . '[]" multiple>';
 
-		return implode($html);
+		return $html;
 	}
 }
