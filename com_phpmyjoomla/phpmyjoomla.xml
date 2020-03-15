@@ -49,8 +49,8 @@
     <administration>
         <menu img="components/com_phpmyjoomla/assets/images/s_com_phpmyjoomla.png" >COM_PHPMYJOOMLA</menu>
         <submenu>
-            <menu link="option=com_phpmyjoomla&amp;view=serverss" view="serverss" alt="Phpmyjoomla/Serverss">COM_PHPMYJOOMLA_TITLE_SERVERSS</menu>
             <menu link="option=com_phpmyjoomla&amp;view=managetables" view="managetables" alt="Phpmyjoomla/Managetables">COM_PHPMYJOOMLA_TITLE_MANAGETABLES</menu>
+            <menu link="option=com_phpmyjoomla&amp;view=serverss" view="serverss" alt="Phpmyjoomla/Serverss">COM_PHPMYJOOMLA_TITLE_SERVERSS</menu>
         </submenu>
         <files folder="administrator">
             <filename>access.xml</filename>
