@@ -10,6 +10,9 @@
 // No direct access to this file
 
 defined('_JEXEC') or die('Restricted access');
+
+//Component Options
+$ed_inline_editing= JComponentHelper::getParams('com_phpmyjoomla')->get('ed_inline_editing','0');
 ?>
 <div class="span12">
     <hr/>
@@ -86,11 +89,19 @@ defined('_JEXEC') or die('Restricted access');
                 </div>
             </div>
         </div>
-        <div class="alert alert-warning alert-dismissible span4 savedlistqueries">
-            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-            <h3><strong><?php echo JText::_('COM_PHPMYJOOMLA_QUICKCONNECTION_TEXT_TITLE_EDITOR');?></strong></h3>
-            <p><?php echo JText::_('COM_PHPMYJOOMLA_QUICKCONNECTION_TEXT_EDITOR_WARNING');?></p>
-        </div>
+        <?php if ($ed_inline_editing) { ?>
+            <div class="alert alert-warning alert-dismissible span4 savedlistqueries">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <h3><strong><?php echo JText::_('COM_PHPMYJOOMLA_QUICKCONNECTION_TEXT_TITLE_EDITOR');?></strong></h3>
+                <p><?php echo JText::_('COM_PHPMYJOOMLA_QUICKCONNECTION_TEXT_EDITOR_WARNING');?></p>
+            </div>
+        <?php } else { ?>
+            <div class="alert alert-warning alert-dismissible span4 savedlistqueries">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <h3><strong><?php echo JText::_('COM_PHPMYJOOMLA_QUICKCONNECTION_TEXT_TITLE_EDITOR_NO');?></strong></h3>
+                <p><?php echo JText::_('COM_PHPMYJOOMLA_QUICKCONNECTION_TEXT_EDITOR_NO_WARNING');?></p>
+            </div>
+        <?php } ?>
     </form>
 </div>
 <div class="span3"></div>
