@@ -279,8 +279,8 @@ class clsPhpMyJoomlaTableGen {
 //              function reloadPage() {
 //                  var table = $(\'#example\').DataTable();
 //                  table.ajax.reload();
-//              }'
-                ;
+//              }
+            ';
 
                 $html .= 'function getFilterOject() {';
                 $html .= 'return ';
@@ -347,8 +347,8 @@ class clsPhpMyJoomlaTableGen {
 //              function reloadPage() {
 //                  var table = $(\'#example\').DataTable();
 //                  table.ajax.reload();
-//              }'
-                ;
+//              }
+            ';
 
                 $html .= 'function getFilterOject() {';
                 $html .= 'return ';
@@ -419,8 +419,8 @@ class clsPhpMyJoomlaTableGen {
 //          function reloadPage() {
 //              var table = $(\'#customtable\').DataTable();
 //              table.ajax.reload();
-//          }'
-        ;
+//          }
+        ';
 
         $html .= 'function getFilterOject() {';
         $html .= 'return ';
