@@ -43,6 +43,7 @@ class Com_phpMyJoomlaInstallerScript
 		<div align="center">
 			<h1>phpMyJoomla Installation</h1>
 			<h3><a href="index.php?option=com_phpmyjoomla">Go to the component phpMyJoomla</a></h3>
+			<h3><a href="index.php?option=com_plugins&view=plugins&filter_search=phpmyjoomla">ENABLE the Pluging Quickicon phpMyJoomla</a></h3>
 		</div>
 		<br/>
 
@@ -78,7 +79,7 @@ class Com_phpMyJoomlaInstallerScript
 					Support in English and Spanish!
 				</p>
 				<p class="">
-					<a href="https://www.phpmyjoomla.com/support" target="_blank"><button type="button" class="btn btn-success"><i class="icon-users" style="padding-right: 10px;"></i>FORUM</button></a>
+					<a href="https://www.phpmyjoomla.com/member-login" target="_blank"><button type="button" class="btn btn-success"><i class="icon-users" style="padding-right: 10px;"></i>MEMBERS</button></a>
 					<a href="https://www.phpmyjoomla.com/support" target="_blank"><button type="button" class="btn btn-success"><i class="icon-question-sign" style="padding-right: 10px;"></i>SUPPORT</button></a>
 					<a href="https://www.phpmyjoomla.com" target="_blank"><button type="button" class="btn btn-info"><i class="icon-book" style="padding-right: 10px;"></i>DOCUMENTATION</button></a>
 				</p>
