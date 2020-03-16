@@ -15,7 +15,19 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [3.0.0] - 2020-04
 ### Added
-- INLINE EDITING
+- INLINE EDITING.
+- New, Edit and Delete buttons.
+- Enable/Disable Inline Editing in configuration options.
+
+### Fixed
+- Alert when edit a table item deleted.
+- Added a modal info after modify a table item.
+
+### Removed
+- Clean code
+
+## [2.1.0] - 2020-03
+### Added
 - Excel and Print buttons.
 
 ### Fixed

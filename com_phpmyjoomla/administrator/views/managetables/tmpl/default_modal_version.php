@@ -37,7 +37,23 @@ defined('_JEXEC') or die('Restricted access');
     <p>
         <span style="font-weight: bold;font-size: 20px;">## [3.0.0] - 2020-04</span><br />
         <span style="font-weight: bold;font-size: 15px;">### Added</span><br />
-        - INLINE EDITING.<br />
+        - INLINE EDITING
+        - New, Edit and Delete buttons.<br />
+        - Enable/Disable Inline Editing in configuration options.<br />
+    </p>
+    <p>
+        <span style="font-weight: bold;font-size: 15px;">### Fixed</span><br />
+        - Alert when edit a table item deleted.<br />
+        - Added a modal info after modify a table item.<br />
+    </p>
+    <p>
+        <span style="font-weight: bold;font-size: 15px;">### Removed</span><br />
+        - Cleaned code.<br />
+    </p>
+    <br />
+    <p>
+        <span style="font-weight: bold;font-size: 20px;">## [2.1.0] - 2020-04</span><br />
+        <span style="font-weight: bold;font-size: 15px;">### Added</span><br />
         - Excel and Print buttons.<br />
     </p>
     <p>
