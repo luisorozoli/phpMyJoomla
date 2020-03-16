@@ -181,260 +181,599 @@ class clsPhpMyJoomlaTableGen {
         //Component Options
         $ed_inline_editing= JComponentHelper::getParams('com_phpmyjoomla')->get('ed_inline_editing','0');
 
-        if ($ed_inline_editing) {
+        if ($ed_inline_editing) { //If inline Editing
             $html = '';
             if (isset($this->arrReferenceTable[$tblId])) {
-                $html .='
-                var editor;
-                $(document).ready(function() {
-                    // DISABLE/ENABLE EDITOR
-                    editor = new $.fn.dataTable.Editor( {
-                        ajax: {
-                            url: "'.$this->generateEditAjaxURL($tblId).'",
-                            data: {table:'.json_encode($this->arrReferenceTable[$tblId]).'},
-                            dataType: "json",
-                        },
-                        table: "#example",
-                        idSrc:  "'.$this->arrReferenceTable[$tblId]['primary'].'",
-                        fields: '.$this->generateEditorFields($this->arrReferenceTable[$tblId]).'
-                    } );
-                    // END DISABLE/ENABLE EDITOR
 
-                    // DISABLE/ENABLE EDITOR
-                    editor.on( \'postSubmit\', function ( e, json, data, action ) {
-                        var jsonArray = [];
-                        var jsonObject;
-                        $.each(json, function(index, element) {
-                            var content = {};
-                            content[index] = element;
-                            jsonArray.push(content);
-                        });
-                        jsonObject = jsonArray[0];
-                        if ("error" in jsonObject) {
-                            alert(jsonObject.error);
-                        } else {
-                             $("#alert-success").fadeTo(2000, 500).slideUp(500, function() {
-                            $("#alert-success").slideUp(500);
-                            });
-                        }
-                    });
-                    // END DISABLE/ENABLE EDITOR
+                //Languages options
+                jimport('joomla.language.helper');
+                @$lang =& JFactory::getLanguage();
 
-                    $(\'#example\').dataTable( {
-                        "ajax": "'.$this->generateAjaxURL($tblId).'",
-                        "deferRender": true,
-                        "dom": "Bfrtip",
-                        "lengthMenu": [[10, 25, 50, -1], ["10 rows", "25 rows", "50 rows", "All rows"]],
-                        "select": true,
-                        buttons: [
+                $lang_editing = ''; //default Local
+                switch (strtolower($lang->getTag())) {
+                    case 'en-gb':
+                        $lang_editing = 'en';
+                        break;
+                    case 'es-es':
+                        $lang_editing = 'es';
+                        break;
+                }
 
+                if ($lang_editing == "es") { //If Spanish
+                    $html .= '
+                        var editor;
+                        $(document).ready(function() {
                             // DISABLE/ENABLE EDITOR
-                            { extend: "create", editor: editor, className: "green" },
-                            { extend: "edit",   editor: editor, className: "orange" },
-                            { extend: "remove", editor: editor, className: "red" },
+                            editor = new $.fn.dataTable.Editor( {
+                                ajax: {
+                                    url: "' . $this->generateEditAjaxURL($tblId) . '",
+                                    data: {table:' . json_encode($this->arrReferenceTable[$tblId]) . '},
+                                    dataType: "json",
+                                },
+                                table: "#example",
+                                idSrc:  "' . $this->arrReferenceTable[$tblId]['primary'] . '",
+                                fields: ' . $this->generateEditorFields($this->arrReferenceTable[$tblId]) . ',
+                                i18n: {
+                                    create: {
+                                        button: "Nuevo Registro",
+                                        title:  "Crear nuevo registro",
+                                        submit: "Crear"
+                                    },
+                                    edit: {
+                                        button: "Editar Registro",
+                                        title:  "Editar Registro",
+                                        submit: "Actualizar"
+                                    },
+                                    remove: {
+                                        button: "Borrar Registro",
+                                        title:  "Borrar Registro",
+                                        submit: "Borrar",
+                                        confirm: {
+                                            _: "¿Estas seguro de que deseas borrar %d registros?",
+                                            1: "¿Estas seguro de que deseas borrar 1 registro?"
+                                        }
+                                    },
+                                    error: {
+                                        "system": "Se ha producido un error del sistema (Más información)"
+                                    },
+                                    "multi": {
+                                        "title": "Valores múltiples",
+                                        "info": "Los elementos seleccionados contienen valores diferentes para esta entrada. Para editar y establecer todos los elementos para esta entrada en el mismo valor, haga clic o toque aquí, de lo contrario, retendrán sus valores individuales",
+                                        "restore": "Deshacer cambios",
+                                        "noMulti": "Esta entrada se puede editar individualmente, pero no como parte de un grupo."
+                                    },
+                                    datetime: {
+                                        "previous": \'Anterior\',
+                                        "next":     \'Siguiente\',
+                                        "months":   [\'Enero\', \'Febrero\', \'Marzo\', \'Abril\', \'Mayo\', \'Junio\', \'Julio\', \'Agosto\', \'Septiembre\', \'Octubre\', \'Noviembre\', \' Diciembre \'],
+                                        "weekdays": [ \'Dom\', \'Lun\', \'Mar\', \'Mie\', \'Jue\', \'Vie\', \'Sab\' ],
+                                        "amPm":     [ \'am\', \'pm\' ],
+                                        "unknown":  \'-\'
+                                    }
+                                }
+                            });
                             // END DISABLE/ENABLE EDITOR
 
-                            "copy",
-                            "csv",
-                            "excel",
-                            "pdf",
-                            "print",
-                            "pageLength",
-                            {
-                               "extend": "colvis",
-                                    "postfixButtons": [ "colvisRestore" ]
-                            }
-                        ],
-                        columnDefs: [
-                            {
-                               targets: -1,
-                               visible: false
-                            },
-                        ],
-//                      select: {
-//                          style:    "os",
-//                          selector: "td:first-child"
-//                      },
-//                      "keys": true,
-                        "colReorder": true,
-                        "stateSave": true,
-                        "scrollX": true,
-                        "pagingType": "full_numbers",
-                        "sDom": "BRCTlfrtip",
-                        "bAutoWidth": false,
+                            // DISABLE/ENABLE EDITOR
+                            editor.on( \'postSubmit\', function ( e, json, data, action ) {
+                                var jsonArray = [];
+                                var jsonObject;
+                                $.each(json, function(index, element) {
+                                    var content = {};
+                                    content[index] = element;
+                                    jsonArray.push(content);
+                                });
+                                jsonObject = jsonArray[0];
+                                if ("error" in jsonObject) {
+                                    alert(jsonObject.error);
+                                } else {
+                                     $("#alert-success").fadeTo(2000, 500).slideUp(500, function() {
+                                    $("#alert-success").slideUp(500);
+                                    });
+                                }
+                            });
+                            // END DISABLE/ENABLE EDITOR
 
-                        columns: '.$this->generateDataTableColumns($this->arrReferenceTable[$tblId]).'
+                            $(\'#example\').dataTable( {
+                                "language": {
+                                    "url": "components/com_phpmyjoomla/assets/lang/Spanish.json"
+                                },
+                                "ajax": "' . $this->generateAjaxURL($tblId) . '",
+                                "deferRender": true,
+                                "dom": "Bfrtip",
+                                "lengthMenu": [[10, 25, 50, -1], ["10 registros", "25 registros", "50 registros", "All registros"]],
+                                "select": true,
+                                buttons: [
 
-                    }).columnFilter(getFilterOject());
+                                    // DISABLE/ENABLE EDITOR
+                                    { extend: "create", editor: editor, className: "green" },
+                                    { extend: "edit",   editor: editor, className: "orange" },
+                                    { extend: "remove", editor: editor, className: "red" },
+                                    // END DISABLE/ENABLE EDITOR
 
-//                  setInterval("reloadPage()", 180000 ); //reloadPage Every 3 minutes
-                });
+                                    "copy",
+                                    "csv",
+                                    "excel",
+                                    "pdf",
+                                    "print",
+                                    "pageLength",
+                                    {
+                                        "extend": "colvis",
+                                        "postfixButtons": [ "colvisRestore" ]
+                                    }
+                                ],
+                                columnDefs: [
+                                    {
+                                        targets: -1,
+                                        visible: false
+                                    },
+                                ],
+//                              select: {
+//                                  style:    "os",
+//                                  selector: "td:first-child"
+//                              },
+//                              "keys": true,
+                                "colReorder": true,
+                                "stateSave": true,
+                                "scrollX": true,
+                                "pagingType": "full_numbers",
+                                "sDom": "BRCTlfrtip",
+                                "bAutoWidth": false,
 
-                // DISABLE/ENABLE EDITOR
-                $(\'#example\').on( \'click\', \'tbody td:not(:first-child)\', function (e) {
-                    editor.inline( this );
-                });
-                // END DISABLE/ENABLE EDITOR
+                                columns: ' . $this->generateDataTableColumns($this->arrReferenceTable[$tblId]) . '
 
-//              function reloadPage() {
-//                  var table = $(\'#example\').DataTable();
-//                  table.ajax.reload();
-//              }
-            ';
+                            }).columnFilter(getFilterOject());
 
-                $html .= 'function getFilterOject() {';
-                $html .= 'return ';
-                $noOfColumns = count($this->arrReferenceTable[$tblId]['db_columns']);
-                $html .= '{';
-                $html .= '"sPlaceHolder": "head:before",';
-                $html .= '"aoColumns":[';
-                for ($cnt = 1; $cnt <= $noOfColumns; $cnt++) {
-                    $html .= '{"sSelector": "#'.($this->filterColumnPrefix.strval($cnt)).'"},';
+//                          setInterval("reloadPage()", 180000 ); //reloadPage Every 3 minutes
+                        });
+
+                        // DISABLE/ENABLE EDITOR
+                        $(\'#example\').on( \'click\', \'tbody td:not(:first-child)\', function (e) {
+                            editor.inline( this );
+                        });
+                        // END DISABLE/ENABLE EDITOR
+
+//                      function reloadPage() {
+//                          var table = $(\'#example\').DataTable();
+//                          table.ajax.reload();
+//                      }
+                    ';
+
+                    $html .= 'function getFilterOject() {';
+                    $html .= 'return ';
+                    $noOfColumns = count($this->arrReferenceTable[$tblId]['db_columns']);
+                    $html .= '{';
+                    $html .= '"sPlaceHolder": "head:before",';
+                    $html .= '"aoColumns":[';
+                    for ($cnt = 1; $cnt <= $noOfColumns; $cnt++) {
+                        $html .= '{"sSelector": "#' . ($this->filterColumnPrefix . strval($cnt)) . '"},';
+                    }
+                    $html = mb_substr($html, 0, -1); //remove last comma
+                    $html .= ']};';
+                    $html .= '}';
+                } else { //If other language NOT spanish
+                    $html .= '
+                        var editor;
+                        $(document).ready(function() {
+                            // DISABLE/ENABLE EDITOR
+                            editor = new $.fn.dataTable.Editor( {
+                                ajax: {
+                                    url: "' . $this->generateEditAjaxURL($tblId) . '",
+                                    data: {table:' . json_encode($this->arrReferenceTable[$tblId]) . '},
+                                    dataType: "json",
+                                },
+                                table: "#example",
+                                idSrc:  "' . $this->arrReferenceTable[$tblId]['primary'] . '",
+                                fields: ' . $this->generateEditorFields($this->arrReferenceTable[$tblId]) . ',
+                            });
+                            // END DISABLE/ENABLE EDITOR
+
+                            // DISABLE/ENABLE EDITOR
+                            editor.on( \'postSubmit\', function ( e, json, data, action ) {
+                                var jsonArray = [];
+                                var jsonObject;
+                                $.each(json, function(index, element) {
+                                    var content = {};
+                                    content[index] = element;
+                                    jsonArray.push(content);
+                                });
+                                jsonObject = jsonArray[0];
+                                if ("error" in jsonObject) {
+                                    alert(jsonObject.error);
+                                } else {
+                                     $("#alert-success").fadeTo(2000, 500).slideUp(500, function() {
+                                    $("#alert-success").slideUp(500);
+                                    });
+                                }
+                            });
+                            // END DISABLE/ENABLE EDITOR
+
+                            $(\'#example\').dataTable( {
+                                "ajax": "' . $this->generateAjaxURL($tblId) . '",
+                                "deferRender": true,
+                                "dom": "Bfrtip",
+                                "lengthMenu": [[10, 25, 50, -1], ["10 rows", "25 rows", "50 rows", "All rows"]],
+                                "select": true,
+                                buttons: [
+
+                                    // DISABLE/ENABLE EDITOR
+                                    { extend: "create", editor: editor, className: "green" },
+                                    { extend: "edit",   editor: editor, className: "orange" },
+                                    { extend: "remove", editor: editor, className: "red" },
+                                    // END DISABLE/ENABLE EDITOR
+
+                                    "copy",
+                                    "csv",
+                                    "excel",
+                                    "pdf",
+                                    "print",
+                                    "pageLength",
+                                    {
+                                        "extend": "colvis",
+                                        "postfixButtons": [ "colvisRestore" ]
+                                    }
+                                ],
+                                columnDefs: [
+                                    {
+                                        targets: -1,
+                                        visible: false
+                                    },
+                                ],
+//                              select: {
+//                                  style:    "os",
+//                                  selector: "td:first-child"
+//                              },
+//                              "keys": true,
+                                "colReorder": true,
+                                "stateSave": true,
+                                "scrollX": true,
+                                "pagingType": "full_numbers",
+                                "sDom": "BRCTlfrtip",
+                                "bAutoWidth": false,
+
+                                columns: ' . $this->generateDataTableColumns($this->arrReferenceTable[$tblId]) . '
+
+                            }).columnFilter(getFilterOject());
+
+//                          setInterval("reloadPage()", 180000 ); //reloadPage Every 3 minutes
+                        });
+
+                        // DISABLE/ENABLE EDITOR
+                        $(\'#example\').on( \'click\', \'tbody td:not(:first-child)\', function (e) {
+                            editor.inline( this );
+                        });
+                        // END DISABLE/ENABLE EDITOR
+
+//                      function reloadPage() {
+//                          var table = $(\'#example\').DataTable();
+//                          table.ajax.reload();
+//                      }
+                    ';
+
+                    $html .= 'function getFilterOject() {';
+                    $html .= 'return ';
+                    $noOfColumns = count($this->arrReferenceTable[$tblId]['db_columns']);
+                    $html .= '{';
+                    $html .= '"sPlaceHolder": "head:before",';
+                    $html .= '"aoColumns":[';
+                    for ($cnt = 1; $cnt <= $noOfColumns; $cnt++) {
+                        $html .= '{"sSelector": "#' . ($this->filterColumnPrefix . strval($cnt)) . '"},';
+                    }
+                    $html = mb_substr($html, 0, -1); //remove last comma
+                    $html .= ']};';
+                    $html .= '}';
                 }
-                $html = mb_substr($html, 0, -1); //remove last comma
-                $html .= ']};';
-                $html .= '}';
             }
             return $html;
-        } else {
+        } else { //If NOT Inline Editing
             $html = '';
             if (isset($this->arrReferenceTable[$tblId])) {
-                $html .='
-                $(document).ready(function() {
-                    $(\'#example\').dataTable( {
-                        "ajax": "'.$this->generateAjaxURL($tblId).'",
-                        "deferRender": true,
-                        "dom": "Bfrtip",
-                        "lengthMenu": [[10, 25, 50, -1], ["10 rows", "25 rows", "50 rows", "All rows"]],
-                        "select": true,
-                        buttons: [
-                            "copy",
-                            "csv",
-                            "excel",
-                            "pdf",
-                            "print",
-                            "pageLength",
-                            {
-                                "extend": "colvis",
-                                "postfixButtons": [ "colvisRestore" ]
-                            }
-                        ],
-                        columnDefs: [
-                            {
-                                targets: -1,
-                                visible: false
-                            },
-                        ],
-                        select: {
-                            style:    "os",
-                            selector: "td:first-child"
-                        },
-                        "keys": true,
-                        "colReorder": true,
-                        "stateSave": true,
-                        "scrollX": true,
-                        "pagingType": "full_numbers",
-                        "sDom": "BRCTlfrtip",
-                        "bAutoWidth": false,
 
-                        columns: '.$this->generateDataTableColumns($this->arrReferenceTable[$tblId]).'
+                //Languages options
+                jimport('joomla.language.helper');
+                @$lang =& JFactory::getLanguage();
 
-                    }).columnFilter(getFilterOject());
-
-//                  setInterval("reloadPage()", 180000 ); //reloadPage Every 3 minutes
-                });
-
-//              function reloadPage() {
-//                  var table = $(\'#example\').DataTable();
-//                  table.ajax.reload();
-//              }
-            ';
-
-                $html .= 'function getFilterOject() {';
-                $html .= 'return ';
-                $noOfColumns = count($this->arrReferenceTable[$tblId]['db_columns']);
-                $html .= '{';
-                $html .= '"sPlaceHolder": "head:before",';
-                $html .= '"aoColumns":[';
-                for ($cnt = 1; $cnt <= $noOfColumns; $cnt++) {
-                    $html .= '{"sSelector": "#'.($this->filterColumnPrefix.strval($cnt)).'"},';
+                $lang_editing = ''; //default Local
+                switch (strtolower($lang->getTag())) {
+                    case 'en-gb':
+                        $lang_editing = 'en';
+                        break;
+                    case 'es-es':
+                        $lang_editing = 'es';
+                        break;
                 }
-                $html = mb_substr($html, 0, -1); //remove last comma
-                $html .= ']};';
-                $html .= '}';
+
+                if ($lang_editing == "es") { //If NOT Inline Editing and YES Spanish
+                    $html .= '
+                        $(document).ready(function() {
+                            $(\'#example\').dataTable( {
+                                "language": {
+                                    "url": "components/com_phpmyjoomla/assets/lang/Spanish.json"
+                                },
+                                "ajax": "'.$this->generateAjaxURL($tblId).'",
+                                "deferRender": true,
+                                "dom": "Bfrtip",
+                                "lengthMenu": [[10, 25, 50, -1], ["10 registros", "25 registros", "50 registros", "All registros"]],
+                                "select": true,
+                                buttons: [
+                                    "copy",
+                                    "csv",
+                                    "excel",
+                                    "pdf",
+                                    "print",
+                                    "pageLength",
+                                    {
+                                        "extend": "colvis",
+                                        "postfixButtons": [ "colvisRestore" ]
+                                    }
+                                ],
+                                columnDefs: [
+                                    {
+                                        targets: -1,
+                                        visible: false
+                                    },
+                                ],
+                                select: {
+                                    style:    "os",
+                                    selector: "td:first-child"
+                                },
+                                "keys": true,
+                                "colReorder": true,
+                                "stateSave": true,
+                                "scrollX": true,
+                                "pagingType": "full_numbers",
+                                "sDom": "BRCTlfrtip",
+                                "bAutoWidth": false,
+
+                                columns: '.$this->generateDataTableColumns($this->arrReferenceTable[$tblId]).'
+
+                            }).columnFilter(getFilterOject());
+
+//                          setInterval("reloadPage()", 180000 ); //reloadPage Every 3 minutes
+                        });
+
+//                      function reloadPage() {
+//                          var table = $(\'#example\').DataTable();
+//                          table.ajax.reload();
+//                      }
+                    ';
+
+                    $html .= 'function getFilterOject() {';
+                    $html .= 'return ';
+                    $noOfColumns = count($this->arrReferenceTable[$tblId]['db_columns']);
+                    $html .= '{';
+                    $html .= '"sPlaceHolder": "head:before",';
+                    $html .= '"aoColumns":[';
+                    for ($cnt = 1; $cnt <= $noOfColumns; $cnt++) {
+                        $html .= '{"sSelector": "#'.($this->filterColumnPrefix.strval($cnt)).'"},';
+                    }
+                    $html = mb_substr($html, 0, -1); //remove last comma
+                    $html .= ']};';
+                    $html .= '}';
+                } else { //If NOT Inline Editing and NOT Spanish
+                    $html .= '
+                        $(document).ready(function() {
+                            $(\'#example\').dataTable( {
+                                "ajax": "'.$this->generateAjaxURL($tblId).'",
+                                "deferRender": true,
+                                "dom": "Bfrtip",
+                                "lengthMenu": [[10, 25, 50, -1], ["10 rows", "25 rows", "50 rows", "All rows"]],
+                                "select": true,
+                                buttons: [
+                                    "copy",
+                                    "csv",
+                                    "excel",
+                                    "pdf",
+                                    "print",
+                                    "pageLength",
+                                    {
+                                        "extend": "colvis",
+                                        "postfixButtons": [ "colvisRestore" ]
+                                    }
+                                ],
+                                columnDefs: [
+                                    {
+                                        targets: -1,
+                                        visible: false
+                                    },
+                                ],
+                                select: {
+                                    style:    "os",
+                                    selector: "td:first-child"
+                                },
+                                "keys": true,
+                                "colReorder": true,
+                                "stateSave": true,
+                                "scrollX": true,
+                                "pagingType": "full_numbers",
+                                "sDom": "BRCTlfrtip",
+                                "bAutoWidth": false,
+
+                                columns: '.$this->generateDataTableColumns($this->arrReferenceTable[$tblId]).'
+
+                            }).columnFilter(getFilterOject());
+
+//                          setInterval("reloadPage()", 180000 ); //reloadPage Every 3 minutes
+                        });
+
+//                      function reloadPage() {
+//                          var table = $(\'#example\').DataTable();
+//                          table.ajax.reload();
+//                      }
+                    ';
+
+                    $html .= 'function getFilterOject() {';
+                    $html .= 'return ';
+                    $noOfColumns = count($this->arrReferenceTable[$tblId]['db_columns']);
+                    $html .= '{';
+                    $html .= '"sPlaceHolder": "head:before",';
+                    $html .= '"aoColumns":[';
+                      for ($cnt = 1; $cnt <= $noOfColumns; $cnt++) {
+                        $html .= '{"sSelector": "#'.($this->filterColumnPrefix.strval($cnt)).'"},';
+                    }
+                    $html = mb_substr($html, 0, -1); //remove last comma
+                    $html .= ']};';
+                    $html .= '}';
+                }
             }
             return $html;
         }
     }
 
     public function renderCustomTableScripts($tblId) {
-        $html = '';
-        $html .='
-            $(\'#customtable\').dataTable( {
-                ajax: {
-                    url: "'.$this->generateCustomQueryAjaxURL($tblId).'",
-                    data: {queryString: "'.$this->customQueryString.'"},
-                    dataType: "json"
-                },
-                "deferRender": true,
-                "dom": "Bfrtip",
-                "lengthMenu": [[10, 25, 50, -1], ["10 rows", "25 rows", "50 rows", "All rows"]],
-                "select": true,
-                buttons: [
-                    "copy",
-                    "csv",
-                    "excel",
-                    "pdf",
-                    "print",
-                    "pageLength",
-                    {
-                        "extend": "colvis",
-                        "postfixButtons": [ "colvisRestore" ]
-                    }
-                ],
-                columnDefs: [
-                    {
-                        targets: -1,
-                        visible: false
-                    },
-                ],
-                select: {
-                    style:    "os",
-                    selector: "td:first-child"
-                },
-                "keys": true,
-                "colReorder": true,
-                "stateSave": true,
-                "scrollX": true,
-                "pagingType": "full_numbers",
-                "sDom": "BRCTlfrtip",
-                "bAutoWidth": false,
 
-                columns: '.json_encode($this->getCustomColumns($tblId, $this->customQueryString, "data")[1]).'
+        //Languages options
+        jimport('joomla.language.helper');
+        @$lang =& JFactory::getLanguage();
 
-            }).columnFilter(getFilterOject());
-
-//          setInterval("reloadPage()", 180000 ); //reloadPage Every 3 minutes
-//
-//          function reloadPage() {
-//              var table = $(\'#customtable\').DataTable();
-//              table.ajax.reload();
-//          }
-        ';
-
-        $html .= 'function getFilterOject() {';
-        $html .= 'return ';
-        $noOfColumns = count($this->getCustomColumns($tblId, $this->customQueryString)[1]);
-        $html .= '{';
-        $html .= '"sPlaceHolder": "head:before",';
-        $html .= '"aoColumns":[';
-        for ($cnt = 1; $cnt <= $noOfColumns; $cnt++) {
-            $html .= '{"sSelector": "#'.($this->filterColumnPrefix.strval($cnt)).'"},';
+        $lang_editing = ''; //default Local
+        switch (strtolower($lang->getTag())) {
+            case 'en-gb':
+                $lang_editing = 'en';
+                break;
+            case 'es-es':
+                $lang_editing = 'es';
+                break;
         }
-        $html = mb_substr($html, 0, -1); //remove last comma
-        $html .= ']};';
-        $html .= '}';
 
+        if ($lang_editing == "es") { //If custom query and Spanish
+            $html = '';
+            $html .='
+                $(\'#customtable\').dataTable( {
+                    "language": {
+                        "url": "components/com_phpmyjoomla/assets/lang/Spanish.json"
+                    },
+                    ajax: {
+                        url: "'.$this->generateCustomQueryAjaxURL($tblId).'",
+                        data: {queryString: "'.$this->customQueryString.'"},
+                        dataType: "json"
+                    },
+                    "deferRender": true,
+                    "dom": "Bfrtip",
+                    "lengthMenu": [[10, 25, 50, -1], ["10 registros", "25 registros", "50 registros", "All registros"]],
+                    "select": true,
+                    buttons: [
+                        "copy",
+                        "csv",
+                        "excel",
+                        "pdf",
+                        "print",
+                        "pageLength",
+                        {
+                            "extend": "colvis",
+                            "postfixButtons": [ "colvisRestore" ]
+                        }
+                    ],
+                    columnDefs: [
+                        {
+                            targets: -1,
+                            visible: false
+                        },
+                    ],
+                    select: {
+                        style:    "os",
+                        selector: "td:first-child"
+                    },
+                    "keys": true,
+                    "colReorder": true,
+                    "stateSave": true,
+                    "scrollX": true,
+                    "pagingType": "full_numbers",
+                    "sDom": "BRCTlfrtip",
+                    "bAutoWidth": false,
+
+                    columns: '.json_encode($this->getCustomColumns($tblId, $this->customQueryString, "data")[1]).'
+
+                }).columnFilter(getFilterOject());
+
+//              setInterval("reloadPage()", 180000 ); //reloadPage Every 3 minutes
+//
+//              function reloadPage() {
+//                  var table = $(\'#customtable\').DataTable();
+//                  table.ajax.reload();
+//              }
+            ';
+
+            $html .= 'function getFilterOject() {';
+            $html .= 'return ';
+            $noOfColumns = count($this->getCustomColumns($tblId, $this->customQueryString)[1]);
+            $html .= '{';
+            $html .= '"sPlaceHolder": "head:before",';
+            $html .= '"aoColumns":[';
+            for ($cnt = 1; $cnt <= $noOfColumns; $cnt++) {
+                $html .= '{"sSelector": "#'.($this->filterColumnPrefix.strval($cnt)).'"},';
+            }
+            $html = mb_substr($html, 0, -1); //remove last comma
+            $html .= ']};';
+            $html .= '}';
+        } else { //If custom query but NOT Spanish
+            $html = '';
+            $html .='
+                $(\'#customtable\').dataTable( {
+                    ajax: {
+                        url: "'.$this->generateCustomQueryAjaxURL($tblId).'",
+                        data: {queryString: "'.$this->customQueryString.'"},
+                        dataType: "json"
+                    },
+                    "deferRender": true,
+                    "dom": "Bfrtip",
+                    "lengthMenu": [[10, 25, 50, -1], ["10 rows", "25 rows", "50 rows", "All rows"]],
+                    "select": true,
+                    buttons: [
+                        "copy",
+                        "csv",
+                        "excel",
+                        "pdf",
+                        "print",
+                        "pageLength",
+                        {
+                            "extend": "colvis",
+                            "postfixButtons": [ "colvisRestore" ]
+                        }
+                    ],
+                    columnDefs: [
+                        {
+                            targets: -1,
+                            visible: false
+                        },
+                    ],
+                    select: {
+                        style:    "os",
+                        selector: "td:first-child"
+                    },
+                    "keys": true,
+                    "colReorder": true,
+                    "stateSave": true,
+                    "scrollX": true,
+                    "pagingType": "full_numbers",
+                    "sDom": "BRCTlfrtip",
+                    "bAutoWidth": false,
+
+                    columns: '.json_encode($this->getCustomColumns($tblId, $this->customQueryString, "data")[1]).'
+
+                }).columnFilter(getFilterOject());
+
+//              setInterval("reloadPage()", 180000 ); //reloadPage Every 3 minutes
+//
+//              function reloadPage() {
+//                  var table = $(\'#customtable\').DataTable();
+//                  table.ajax.reload();
+//              }
+            ';
+
+            $html .= 'function getFilterOject() {';
+            $html .= 'return ';
+            $noOfColumns = count($this->getCustomColumns($tblId, $this->customQueryString)[1]);
+            $html .= '{';
+            $html .= '"sPlaceHolder": "head:before",';
+            $html .= '"aoColumns":[';
+            for ($cnt = 1; $cnt <= $noOfColumns; $cnt++) {
+                $html .= '{"sSelector": "#'.($this->filterColumnPrefix.strval($cnt)).'"},';
+            }
+            $html = mb_substr($html, 0, -1); //remove last comma
+            $html .= ']};';
+            $html .= '}';
+        }
         return $html;
     }
 

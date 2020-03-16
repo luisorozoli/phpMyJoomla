@@ -1,0 +1,38 @@
+{
+    create: {
+        button: "Nuevo Registro",
+        title:  "Crear nuevo registro",
+        submit: "Crear"
+    },
+    edit: {
+        button: "Editar Registro",
+        title:  "Editar Registro",
+        submit: "Actualizar"
+    },
+    remove: {
+        button: "Borrar Registro",
+        title:  "Borrar Registro",
+        submit: "Borrar",
+        confirm: {
+            _: "¿Estas seguro de que deseas borrar %d registros?",
+            1: "¿Estas seguro de que deseas borrar 1 registro?"
+        }
+    },
+    error: {
+        "system": "Se ha producido un error del sistema (Más información)"
+    },
+    "multi": {
+        "title": "Valores múltiples",
+        "info": "Los elementos seleccionados contienen valores diferentes para esta entrada. Para editar y establecer todos los elementos para esta entrada en el mismo valor, haga clic o toque aquí, de lo contrario, retendrán sus valores individuales",
+        "restore": "Deshacer cambios",
+        "noMulti": "Esta entrada se puede editar individualmente, pero no como parte de un grupo."
+    },
+    datetime: {
+        "previous": 'Anterior',
+        "next":     'Siguiente',
+        "months":   ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', ' Diciembre '],
+        "weekdays": [ 'Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab' ],
+        "amPm":     [ 'am', 'pm' ],
+        "unknown":  '-'
+    }
+}
