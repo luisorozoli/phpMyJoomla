@@ -207,7 +207,9 @@ class clsPhpMyJoomlaTableGen {
                     if ("error" in jsonObject) {
                         alert(jsonObject.error);
                     } else {
-                        alert("Update success!");
+                         $("#alert-success").fadeTo(2000, 500).slideUp(500, function() {
+                        $("#alert-success").slideUp(500);
+                        });
                     }
                 });
                 // END DISABLE/ENABLE EDITOR
@@ -219,11 +221,13 @@ class clsPhpMyJoomlaTableGen {
                         "lengthMenu": [[10, 25, 50, -1], ["10 rows", "25 rows", "50 rows", "All rows"]],
                         "select": true,
                         buttons: [
+
                             // DISABLE/ENABLE EDITOR
                             { extend: "create", editor: editor, className: "green" },
                             { extend: "edit",   editor: editor, className: "orange" },
                             { extend: "remove", editor: editor, className: "red" },
                             // END DISABLE/ENABLE EDITOR
+
                             "copy",
                             "csv",
                             "excel",

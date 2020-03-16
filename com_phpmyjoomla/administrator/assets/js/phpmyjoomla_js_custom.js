@@ -1,5 +1,6 @@
 $(document).ready(function()
 {
+    $("#alert-success").hide();
     $('.toggle').hide();
     $('a.togglelink').on('click', function (e) {
         e.preventDefault();

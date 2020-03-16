@@ -93,6 +93,10 @@ defined('_JEXEC') or die('Restricted access');
         </div>
     </form>
 </div>
-<div class="span12">
-    <hr/>
+<div class="span3"></div>
+<div class="span5 alert alert-success" id="alert-success" style="text-align: center;font-size: 18px;">
+    <button type="button" class="close" data-dismiss="alert">x</button>
+    <?php echo JText::_('COM_PHPMYJOOMLA_UPDATE_TABLE_TEXT');?>
+</div>
+<div class="span3"></div>
 </div>
