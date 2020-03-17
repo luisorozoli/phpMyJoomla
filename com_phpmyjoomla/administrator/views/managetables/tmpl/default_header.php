@@ -14,7 +14,9 @@ defined('_JEXEC') or die('Restricted access');
 <div id="container">
     <div class="span12">
         <div class="span4">
-            <img src="components/com_phpmyjoomla/assets/images/phpmyjoomla/logo_small.png" alt="phpMyJoomla logo" />
+            <a href="http://www.phpmyjoomla.com" target="_blank">
+                <img src="components/com_phpmyjoomla/assets/images/phpmyjoomla/Logo_phpMyJoomla.png" alt="phpMyJoomla logo" style="max-width: 150px;" />
+            </a>
         </div>
         <div class="span5">
             <h2><?php echo JText::_('COM_PHPMYJOOMLA_TEXT_PRINCIPALTITLE');?></h2>
