@@ -12,8 +12,6 @@
 defined('_JEXEC') or die('Restricted access');
 ?>
 <head>
-    <!-- Font Awesome CDN -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <?php
     $doc = JFactory::getDocument();
 
@@ -27,7 +25,8 @@ defined('_JEXEC') or die('Restricted access');
     $doc->addStyleSheet(JURI::root() . 'administrator/components/com_phpmyjoomla/assets/css/phpmyjoomla_css_custom.css');
     $doc->addStyleSheet(JURI::root() . 'administrator/components/com_phpmyjoomla/assets/css/phpmyjoomla.css');
     ?>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <?php
     $doc->addScript(JURI::root() . 'administrator/components/com_phpmyjoomla/assets/js/jquery-3.3.1.js');
     $doc->addScript(JURI::root() . 'administrator/components/com_phpmyjoomla/assets/js/datatables.min.js');

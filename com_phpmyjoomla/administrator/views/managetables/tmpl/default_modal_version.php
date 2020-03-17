@@ -45,6 +45,10 @@ defined('_JEXEC') or die('Restricted access');
         - Spanish translation added to inline editing.<br />
     </p>
     <p>
+        <span style="font-weight: bold;font-size: 15px;">### Changed/Update</span><br />
+        - FROM Font awesome 4.7.0. TO Font awesome 5.0.13.<br />
+    </p>
+    <p>
         <span style="font-weight: bold;font-size: 15px;">### Fixed</span><br />
         - Alert when edit a table item deleted.<br />
         - Added a modal info after modify a table item.<br />

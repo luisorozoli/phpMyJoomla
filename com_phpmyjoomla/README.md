@@ -22,6 +22,9 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Help button added to toolbar.
 - Spanish translation added to inline editing.
 
+### Changed/Update
+- FROM Font awesome 4.7.0. TO Font awesome 5.0.13.
+
 ### Fixed
 - Alert when edit a table item deleted.
 - Added a modal info after modify a table item.
