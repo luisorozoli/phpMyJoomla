@@ -37,8 +37,8 @@ class Pkg_phpMyJoomlaInstallerScript
 		$rows = 0;
 		?>
 		<div>
-			<a href="https://www.phpmyjoomla.com" target="_blank"><img src="components/com_phpmyjoomla/assets/images/phpmyjoomla/logo_small.png" alt="phpMyJoomla logo" align="left" /></a>
-			<a href="http://www.luisorozoli.com" target="_blank"><img src="components/com_phpmyjoomla/assets/images/phpmyjoomla/logo_luisorozoli.png" alt="Luisorozoli logo" align="right" /></a>
+			<a href="https://www.phpmyjoomla.com" target="_blank"><img src="components/com_phpmyjoomla/assets/images/phpmyjoomla/Logo_phpMyJoomla.png" alt="phpMyJoomla logo" align="left" style="max-width: 200px;"></a>
+			<a href="https://www.luisorozoli.com" target="_blank"><img src="components/com_phpmyjoomla/assets/images/phpmyjoomla/logo_luisorozoli.png" alt="Luisorozoli logo" align="right" style="max-width: 200px;"></a>
 		</div>
 		<div align="center">
 			<h1>phpMyJoomla Installation</h1>
