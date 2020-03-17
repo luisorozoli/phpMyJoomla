@@ -296,24 +296,12 @@ class clsPhpMyJoomlaTableGen {
                                     "postfixButtons": [ "colvisRestore" ]
                                 }
                             ],
-                            columnDefs: [
-                                {
-                                    targets: -1,
-                                    visible: false
-                                },
-                            ],
-//                          select: {
-//                              style:    "os",
-//                              selector: "td:first-child"
-//                          },
-//                          "keys": true,
                             "colReorder": true,
-                            "stateSave": true,
                             "scrollX": true,
                             "pagingType": "full_numbers",
-                            "sDom": "BRCTlfrtip",
-                            "bAutoWidth": false,
+
                             columns: ' . $this->generateDataTableColumns($this->arrReferenceTable[$tblId]) . '
+
                         }).columnFilter(getFilterOject());
 //                      setInterval("reloadPage()", 180000 ); //reloadPage Every 3 minutes
                     });
@@ -367,23 +355,14 @@ class clsPhpMyJoomlaTableGen {
                                     "postfixButtons": [ "colvisRestore" ]
                                 }
                             ],
-                            columnDefs: [
-                                {
-                                    targets: -1,
-                                    visible: false
-                                },
-                            ],
                             select: {
                                 style:    "os",
                                 selector: "td:first-child"
                             },
                             "keys": true,
                             "colReorder": true,
-                            "stateSave": true,
                             "scrollX": true,
                             "pagingType": "full_numbers",
-                            "sDom": "BRCTlfrtip",
-                            "bAutoWidth": false,
 
                             columns: '.$this->generateDataTableColumns($this->arrReferenceTable[$tblId]).'
 
@@ -442,23 +421,14 @@ class clsPhpMyJoomlaTableGen {
                         "postfixButtons": [ "colvisRestore" ]
                     }
                 ],
-                columnDefs: [
-                    {
-                        targets: -1,
-                        visible: false
-                    },
-                ],
                 select: {
                     style:    "os",
                     selector: "td:first-child"
                 },
                 "keys": true,
                 "colReorder": true,
-                "stateSave": true,
                 "scrollX": true,
                 "pagingType": "full_numbers",
-                "sDom": "BRCTlfrtip",
-                "bAutoWidth": false,
 
                 columns: '.json_encode($this->getCustomColumns($tblId, $this->customQueryString, "data")[1]).'
 
