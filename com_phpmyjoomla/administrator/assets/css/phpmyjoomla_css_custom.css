@@ -316,7 +316,7 @@ div#example_filter {
     color: green;
 }
 
-.accordion-head1,.accordion-head2,.accordion-head3, i{
+.accordion-head1 i,.accordion-head2 i,.accordion-head3 i{
     font-size: 2em;
     float: left;
 }

@@ -11,53 +11,29 @@
 
 defined('_JEXEC') or die('Restricted access');
 ?>
-<!-- Font Awesome CDN -->
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-<?php
-$doc = JFactory::getDocument();
-
-$doc->addStyleSheet(JURI::root() . 'administrator/components/com_phpmyjoomla/assets/css/datatables.min.css');
-$doc->addStyleSheet(JURI::root() . 'administrator/components/com_phpmyjoomla/assets/css/buttons.dataTables.min.css');
-$doc->addStyleSheet(JURI::root() . 'administrator/components/com_phpmyjoomla/assets/css/dataTables.colReorder.css');
-$doc->addStyleSheet(JURI::root() . 'administrator/components/com_phpmyjoomla/assets/css/keyTable.dataTables.min.css');
-$doc->addStyleSheet(JURI::root() . 'administrator/components/com_phpmyjoomla/assets/css/select.dataTables.min.css');
-$doc->addStyleSheet(JURI::root() . 'administrator/components/com_phpmyjoomla/assets/css/editor.dataTables.min.css');
-$doc->addStyleSheet(JURI::root() . 'administrator/components/com_phpmyjoomla/assets/css/jquery.modal.css');
-$doc->addStyleSheet(JURI::root() . 'administrator/components/com_phpmyjoomla/assets/css/phpmyjoomla_css_custom.css');
-$doc->addStyleSheet(JURI::root() . 'administrator/components/com_phpmyjoomla/assets/css/phpmyjoomla.css');
-?>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
-<?php
-$doc->addScript(JURI::root() . 'administrator/components/com_phpmyjoomla/assets/js/jquery-3.3.1.js');
-$doc->addScript(JURI::root() . 'administrator/components/com_phpmyjoomla/assets/js/datatables.min.js');
-$doc->addScript(JURI::root() . 'administrator/components/com_phpmyjoomla/assets/js/dataTables.buttons.min.js');
-
-$doc->addScript(JURI::root() . 'administrator/components/com_phpmyjoomla/assets/js/export/buttons.flash.min.js');
-$doc->addScript(JURI::root() . 'administrator/components/com_phpmyjoomla/assets/js/export/jszip.min.js');
-$doc->addScript(JURI::root() . 'administrator/components/com_phpmyjoomla/assets/js/export/pdfmake.min.js');
-$doc->addScript(JURI::root() . 'administrator/components/com_phpmyjoomla/assets/js/export/vfs_fonts.js');
-$doc->addScript(JURI::root() . 'administrator/components/com_phpmyjoomla/assets/js/export/buttons.html5.min.js');
-$doc->addScript(JURI::root() . 'administrator/components/com_phpmyjoomla/assets/js/export/buttons.print.min.js');
-
-$doc->addScript(JURI::root() . 'administrator/components/com_phpmyjoomla/assets/js/buttons.colVis.min.js');
-$doc->addScript(JURI::root() . 'administrator/components/com_phpmyjoomla/assets/js/dataTables.colReorder.js');
-$doc->addScript(JURI::root() . 'administrator/components/com_phpmyjoomla/assets/js/jquery.dataTables.columnFilter.js');
-$doc->addScript(JURI::root() . 'administrator/components/com_phpmyjoomla/assets/js/dataTables.select.min.js');
-$doc->addScript(JURI::root() . 'administrator/components/com_phpmyjoomla/assets/js/dataTables.keyTable.min.js');
-
-$doc->addScript(JURI::root() . 'administrator/components/com_phpmyjoomla/assets/js/editor/dataTables.editor.min.js');
-
-$doc->addScript(JURI::root() . 'administrator/components/com_phpmyjoomla/assets/js/jquery.modal.min.js');
-$doc->addScript(JURI::root() . 'administrator/components/com_phpmyjoomla/assets/js/phpmyjoomla_js_custom.js');
-
-$doc->addScript(JURI::root() . 'media/jui/js/jquery.min.js');
-$doc->addScript(JURI::root() . 'media/jui/js/jquery-noconflict.js');
-$doc->addScript(JURI::root() . 'media/jui/js/jquery-migrate.min.js');
-$doc->addScript(JURI::root() . 'media/system/js/core.js');
-?>
-<div id="ajax_shield" name="export_shield" class="clean_background"></div>
-<div id="ajax_loading" class="loading-invisible">
-    <p>
-        <img src="<?php echo JURI::root() . 'administrator/components/com_phpmyjoomla/assets/images/loading.gif';?>" alt="Loading" />
-    </p>
+<div id="container">
+    <div class="span12">
+        <div class="span4">
+            <img src="components/com_phpmyjoomla/assets/images/phpmyjoomla/logo_small.png" alt="phpMyJoomla logo" />
+        </div>
+        <div class="span5">
+            <h2><?php echo JText::_('COM_PHPMYJOOMLA_TEXT_PRINCIPALTITLE');?></h2>
+            <a href="https://www.phpmyjoomla.com/member-login" target="_blank"><button type="button" class="btn btn-success"><i class="fa fa-users pad-r10"></i><?php echo JText::_('COM_PHPMYJOOMLA_TEXTBUTTON_MEMBERS');?></button></a>
+            <a href="https://www.phpmyjoomla.com/support" target="_blank"><button type="button" class="btn btn-success"><i class="fa fa-question-circle pad-r10"></i><?php echo JText::_('COM_PHPMYJOOMLA_TEXTBUTTON_SUPPORT');?></button></a>
+            <a href="https://www.phpmyjoomla.com" target="_blank"><button type="button" class="btn btn-info"><i class="fa fa-book pad-r10"></i><?php echo JText::_('COM_PHPMYJOOMLA_TEXTBUTTON_DOCUMENTATION');?></button></a>
+        </div>
+        <div class="span3 esbutton fright">
+            <!-- Link to open the modal -->
+            <a class="fright" href="#ex3" rel="modal:open">
+                <div id="phpmyjoomla_version">
+                    <?php echo JText::_('COM_PHPMYJOOMLA_VERSION');?>
+                    <i class="fa fa-info-circle"></i>
+                </div>
+            </a>
+            <br />
+            <img class="fright" src="components/com_phpmyjoomla/assets/images/phpmyjoomla/joomla_3x.png" alt="Joomla Compact 3.x logo" />
+        </div>
+        <br />
+        <a href="index.php?option=com_phpmyjoomla&view=serverss"><button type="button" class="btn btn-primary fright"><i class="fa fa-cubes pad-r10"></i><?php echo JText::_('COM_PHPMYJOOMLA_TEXTBUTTON_EXTERNALSERVERS');?></button></a>
+    </div>
 </div>
