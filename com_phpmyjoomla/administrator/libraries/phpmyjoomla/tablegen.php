@@ -306,9 +306,9 @@ class clsPhpMyJoomlaTableGen {
 //                      setInterval("reloadPage()", 180000 ); //reloadPage Every 3 minutes
                     });
                     // DISABLE/ENABLE EDITOR
-                    $("#example").on( "click", "tbody td:not(:first-child)", function (e) {
-                        editor.inline( this );
-                    });
+//                    $("#example").on( "click", "tbody td:not(:first-child)", function (e) {
+//                        editor.inline( this );
+//                    });
                     // END DISABLE/ENABLE EDITOR
 //                  function reloadPage() {
 //                      var table = $("#example").DataTable();
