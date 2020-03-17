@@ -152,6 +152,9 @@ class phpMyJoomlaViewManagetables extends JViewLegacy {
 
         JToolBarHelper::title(JText::_('COM_PHPMYJOOMLA_TITLE_MANAGETABLES'), 'managetables.png');
 
+        $help_url  = 'https://www.phpmyjoomla.com/support';
+        JToolbarHelper::help( 'MY_COMPONENT_HELP_VIEW_TYPE1', false, $help_url );
+
         //Check if the form exists before showing the add/edit buttons
         $formPath = JPATH_COMPONENT_ADMINISTRATOR . '/views/managetable';
         if (file_exists($formPath)) {
