@@ -5,6 +5,10 @@
 			<option value="1">JYES</option>
 			<option value="0">JNO</option>
 		</field>
+		<field name="configuration_accordion" type="radio" default="0" label="COM_PHPMYJOOMLA_CONFIGURATION_ACCORDION" description="" class="btn-group btn-group-yesno">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
 	</fieldset>
 	<fieldset
 			name="permissions"

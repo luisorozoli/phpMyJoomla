@@ -14,9 +14,6 @@ defined('_JEXEC') or die('Restricted access');
 //Component Options
 $ed_inline_editing= JComponentHelper::getParams('com_phpmyjoomla')->get('ed_inline_editing','0');
 ?>
-<div class="span12">
-    <hr/>
-</div>
 <div class="span12 pmjfilters">
     <form id="frmselectserverdbtable" name="frmselectserverdbtable" method="POST">
         <div class="span4 serverfilters">
@@ -103,9 +100,6 @@ $ed_inline_editing= JComponentHelper::getParams('com_phpmyjoomla')->get('ed_inli
             </div>
         <?php } ?>
     </form>
-</div>
-<div class="span12">
-    <hr>
 </div>
 <div class="" style="display: none">
     <div class="span3"></div>

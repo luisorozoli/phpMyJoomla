@@ -315,3 +315,23 @@ div#example_filter {
     font-weight: bold;
     color: green;
 }
+
+.accordion-head1,.accordion-head2,.accordion-head3, i{
+    font-size: 2em;
+    float: left;
+}
+
+.accordion-head1 > .collapsed > i:before{
+    content: "\f05a";
+}
+
+.accordion-head2 > .collapsed > i:before{
+    content: "\f233";
+}
+.accordion-head3 > .collapsed > i:before{
+    content: "\f0ce";
+}
+
+.span12 {
+    margin-left: 0 !important;
+}
