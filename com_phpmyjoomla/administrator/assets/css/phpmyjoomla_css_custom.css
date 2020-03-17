@@ -23,7 +23,7 @@ input.buttons-phpmyjoomla-blue {
     border-radius: 5px;
     border-color: #2f96b4;
     margin-top: -10px;
-    margin-left: 6px;
+    margin-left: -10px;
     background-color: #49afcd;
     color: #ffffff;
     padding: 3px 10px 3px 10px;
@@ -32,7 +32,7 @@ input.buttons-phpmyjoomla-blue:hover {
     border-radius:5px;
     border-color:#51a351;
     margin-top:-10px;
-    margin-left: 6px;
+    margin-left: -10px;
     background-color:#62c462;
     color:#ffffff;
     padding:3px 10px 3px 10px;
@@ -41,7 +41,7 @@ input.buttons-phpmyjoomla-delete {
     border-radius:5px;
     border-color:#2f6ab4;
     margin-top:-10px;
-    margin-left: 6px;
+    margin-left: -10px;
     background-color:#2f55b4;
     color:#ffffff;
     padding:3px 10px 3px 10px;
@@ -50,7 +50,7 @@ input.buttons-phpmyjoomla-delete:hover {
     border-radius:5px;
     border-color:#b00000;
     margin-top:-10px;
-    margin-left: 6px;
+    margin-left: -10px;
     background-color:#e40000;
     color:#ffffff;
     padding:3px 10px 3px 10px;

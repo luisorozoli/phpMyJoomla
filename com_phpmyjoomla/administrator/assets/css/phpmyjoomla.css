@@ -33,7 +33,7 @@ input[type="color"],
     color: #555;
     display: inline-block;
     font-size: 13px;
-    height: 28px !important;
+    height: 28px;
     line-height: 18px;
     margin-bottom: 9px;
     padding: 4px 6px;

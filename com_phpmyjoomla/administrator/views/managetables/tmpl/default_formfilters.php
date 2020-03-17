@@ -78,7 +78,7 @@ $ed_inline_editing= JComponentHelper::getParams('com_phpmyjoomla')->get('ed_inli
                 </div>
                 <div>
 	                <span id="">
-	                    <i class="fa fa-eye" style="font-size: 25px;margin-right: 10px;"></i><input type="password" placeholder="<?php echo JText::_('COM_PHPMYJOOMLA_QUICKCONNECTION_TEXT_PLACEHOLDER_PASSWORD');?>" id="quickconn_password" name="quickconn_password" value="<?php echo $this->quickconn_password;?>">
+	                    <i class="fa fa-eye" style="font-size: 25px;margin-right: 15px;"></i><input type="password" placeholder="<?php echo JText::_('COM_PHPMYJOOMLA_QUICKCONNECTION_TEXT_PLACEHOLDER_PASSWORD');?>" id="quickconn_password" name="quickconn_password" value="<?php echo $this->quickconn_password;?>">
 	                </span>
                     <span id="">
                     	<i class="fa fa-refresh" style="font-size: 25px;margin-right: 10px;"></i><input id="check_conn" name="check_conn" type="button" class="buttons-phpmyjoomla-blue" value="<?php echo JText::_('COM_PHPMYJOOMLA_QUICKCONNECTION_TEXT_BUTTON_TESTCONNECTION');?>">
