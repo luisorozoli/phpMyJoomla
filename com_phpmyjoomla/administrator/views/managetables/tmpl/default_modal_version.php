@@ -40,6 +40,7 @@ defined('_JEXEC') or die('Restricted access');
         - INLINE EDITING<br />
         - New, Edit and Delete buttons.<br />
         - Enable/Disable Inline Editing in configuration options.<br />
+        - Enable/Disable accordion for Manage Tables view in configuration options.<br />
         - Help button added to toolbar.<br />
         - Spanish translation added to inline editing.<br />
     </p>
