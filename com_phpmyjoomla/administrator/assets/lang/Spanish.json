@@ -23,7 +23,19 @@
     },
     "buttons": {
         "copy": "Copiar",
+        "copyTitle": "Agregado al portapapeles",
+        "copySuccess": {
+            "_": "%d líneas copiadas",
+            "1": "1 linia copiada"
+        },
         "print": "Imprimir",
         "colvis": "Visibilidad de columnas"
+    },
+    "select": {
+        "rows": {
+            "_": "%d Filas seleccionadas",
+            "0": "Click en un registro para seleccionarlo",
+            "1": "1 Fila seleccionada"
+        }
     }
 }
