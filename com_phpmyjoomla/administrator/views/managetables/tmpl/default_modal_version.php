@@ -40,6 +40,8 @@ defined('_JEXEC') or die('Restricted access');
         - INLINE EDITING<br />
         - New, Edit and Delete buttons.<br />
         - Enable/Disable Inline Editing in configuration options.<br />
+        - Help button added to toolbar.<br />
+        - Spanish translation added to inline editing.<br />
     </p>
     <p>
         <span style="font-weight: bold;font-size: 15px;">### Fixed</span><br />

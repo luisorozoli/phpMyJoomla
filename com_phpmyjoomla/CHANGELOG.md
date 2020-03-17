@@ -16,6 +16,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - INLINE EDITING.
 - New, Edit and Delete buttons.
 - Enable/Disable Inline Editing in configuration options.
+- Help button added to toolbar.
+- Spanish translation added to inline editing.
 
 ### Fixed
 - Alert when edit a table item deleted.
