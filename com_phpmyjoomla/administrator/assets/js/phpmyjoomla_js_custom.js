@@ -55,6 +55,17 @@ $(function() {
             $('#overlay').fadeOut('fast');
         });
     });
+
+    $('#activator2').click(function(){
+        $('#overlay2').fadeIn('fast',function(){
+            $('#box2').animate({'top':'160px'},500);
+        });
+    });
+    $('#boxclose2').click(function(){
+        $('#box2').animate({'top':'-1000px'},500,function(){
+            $('#overlay2').fadeOut('fast');
+        });
+    });
 });
 
 function showLoadingDiv() {

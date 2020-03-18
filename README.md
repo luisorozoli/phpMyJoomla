@@ -21,6 +21,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Enable/Disable accordion for Manage Tables view in configuration options.
 - Help button added to toolbar.
 - Spanish translation added to inline editing.
+- Button tools used.
 
 ### Changed/Update
 - FROM Font awesome 4.7.0. TO Font awesome 5.0.13.

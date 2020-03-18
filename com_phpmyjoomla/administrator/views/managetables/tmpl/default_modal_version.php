@@ -11,6 +11,7 @@
 
 defined('_JEXEC') or die('Restricted access');
 ?>
+
 <div id="ex3" class="modal">
     <p>
         <span style="font-weight: bold;font-size: 25px;">Change Log</span><br /><br />

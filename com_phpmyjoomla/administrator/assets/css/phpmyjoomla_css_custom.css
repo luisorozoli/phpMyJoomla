@@ -61,7 +61,7 @@ select#select_db,select#select_table {
     margin-right:15px !important;
 }
 .quickfilters input[type="text"],.quickfilters input[type="password"] {
-    width:150px !important;
+    width:125px !important;
     /*margin-bottom:15px !important;*/
     margin-right:15px !important;
 }
@@ -334,4 +334,8 @@ div#example_filter {
 
 .span12 {
     margin-left: 0 !important;
+}
+
+.vector-brand-circle {
+    fill: #25A9E1;
 }
