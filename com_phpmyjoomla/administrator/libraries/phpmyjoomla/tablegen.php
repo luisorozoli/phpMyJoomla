@@ -306,9 +306,9 @@ class clsPhpMyJoomlaTableGen {
 //                      setInterval("reloadPage()", 180000 ); //reloadPage Every 3 minutes
                     });
                     // DISABLE/ENABLE EDITOR
-//                    $("#example").on( "click", "tbody td:not(:first-child)", function (e) {
-//                        editor.inline( this );
-//                    });
+                    $("#example").on( "click", "tbody td:not(:first-child)", function (e) {
+                        editor.inline( this );
+                    });
                     // END DISABLE/ENABLE EDITOR
 //                  function reloadPage() {
 //                      var table = $("#example").DataTable();
@@ -355,9 +355,9 @@ class clsPhpMyJoomlaTableGen {
                                     "postfixButtons": [ "colvisRestore" ]
                                 }
                             ],
-                            select: {
-                                style:    "os",
-                                selector: "td:first-child"
+                            "select": {
+                                "style":    "os",
+                                "selector": "td:first-child"
                             },
                             "keys": true,
                             "colReorder": true,
@@ -421,9 +421,9 @@ class clsPhpMyJoomlaTableGen {
                         "postfixButtons": [ "colvisRestore" ]
                     }
                 ],
-                select: {
-                    style:    "os",
-                    selector: "td:first-child"
+                "select": {
+                    "style":    "os",
+                    "selector": "td:first-child"
                 },
                 "keys": true,
                 "colReorder": true,
