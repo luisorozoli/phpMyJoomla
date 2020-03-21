@@ -35,8 +35,8 @@ if ($queryStr != '!wala') {
             </p>
         </div>
         <a id="list" style="float: right;" href="#"><button id="activator" class="activator"><?php echo JText::_('COM_PHPMYJOOMLA_MANUAL_TEXT_BUTTON');?></button></a>
-        <a id="list" style="margin-bottom: 70px;" href="#" class="customquery"><button onclick="setColorCustomQuery('customquery','#eee');" id="customquery" class="shcustom"><?php echo JText::_('COM_PHPMYJOOMLA_SHOWHIDE_CUSTOMQUERY_TEXT_BUTTON');?></button></a>
-        <div class="customquery_toggle" style="overflow: visible; margin: 10px 0 0 0;">
+        <!--CUSTOM QUERY-->
+        <!--<a id="list" style="margin-bottom: 70px;" href="#" class="customquery"><button onclick="setColorCustomQuery('customquery','#eee');" id="customquery" class="shcustom">--><?php //echo JText::_('COM_PHPMYJOOMLA_SHOWHIDE_CUSTOMQUERY_TEXT_BUTTON');?><!--</button></a>-->        <div class="customquery_toggle" style="overflow: visible; margin: 10px 0 0 0;">
             <?php echo $this->objTableGen->renderCustomQuery(); ?>
         </div>
         <a id="list" style="margin-bottom: 70px;" href="#" class="togglelink"><button onclick="setColorFilter('btnfilters','#eee');" id="btnfilters" class="shfilters"><?php echo JText::_('COM_PHPMYJOOMLA_SHOWHIDE_TEXT_BUTTON');?></button></a>
