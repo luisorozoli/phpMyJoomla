@@ -132,18 +132,28 @@ class clsPhpMyJoomlaTableGen {
         return $html;
     }
 
+    public function appendGenericURLParam($tblId) {
+        $appendurl = '';
+        $appendurl .= '&loaded_db='.$this->arrReferenceTable[$tblId]['db_name'];
+        $appendurl .= '&loaded_table='.$this->arrReferenceTable[$tblId]['table_name'];
+        $appendurl .= '&loaded_server='.$this->arrReferenceTable[$tblId]['server_id'];
+        $appendurl .= '&select_server='.$this->arrReferenceTable[$tblId]['additional_params']['select_server'];
+        $appendurl .= '&select_db='.$this->arrReferenceTable[$tblId]['additional_params']['select_db'];
+        $appendurl .= '&select_table='.$this->arrReferenceTable[$tblId]['additional_params']['select_table'];
+        $appendurl .= '&quickconn_host='.$this->arrReferenceTable[$tblId]['additional_params']['quickconn_host'];
+        $appendurl .= '&quickconn_database='.$this->arrReferenceTable[$tblId]['additional_params']['quickconn_database'];
+        $appendurl .= '&quickconn_username='.$this->arrReferenceTable[$tblId]['additional_params']['quickconn_username'];
+        $appendurl .= '&quickconn_password='.$this->arrReferenceTable[$tblId]['additional_params']['quickconn_password'];
+        $appendurl .= '&select_filters='.$this->arrReferenceTable[$tblId]['additional_params']['select_filters'];
+        return $appendurl;
+    }
+
     public function generateAjaxURL($tblId) {
         $url = '';
         $url .= './index.php?option=com_phpmyjoomla&view=managetables';
         $url .= '&ajax=1';
         $url .= '&ajaxaction=generatetablejson';
-        $url .= '&loaded_db='.$this->arrReferenceTable[$tblId]['db_name'];
-        $url .= '&loaded_table='.$this->arrReferenceTable[$tblId]['table_name'];
-        $url .= '&loaded_server='.$this->arrReferenceTable[$tblId]['server_id'];
-        $url .= '&quickconn_host='.$this->arrReferenceTable[$tblId]['additional_params']['quickconn_host'];
-        $url .= '&quickconn_database='.$this->arrReferenceTable[$tblId]['additional_params']['quickconn_database'];
-        $url .= '&quickconn_username='.$this->arrReferenceTable[$tblId]['additional_params']['quickconn_username'];
-        $url .= '&quickconn_password='.$this->arrReferenceTable[$tblId]['additional_params']['quickconn_password'];
+        $url .= $this->appendGenericURLParam($tblId);
         return $url;
     }
 
@@ -152,13 +162,7 @@ class clsPhpMyJoomlaTableGen {
         $url .= './index.php?option=com_phpmyjoomla&view=managetables';
         $url .= '&ajax=1';
         $url .= '&ajaxaction=runcustomquery';
-        $url .= '&loaded_db='.$this->arrReferenceTable[$tblId]['db_name'];
-        $url .= '&loaded_table='.$this->arrReferenceTable[$tblId]['table_name'];
-        $url .= '&loaded_server='.$this->arrReferenceTable[$tblId]['server_id'];
-        $url .= '&quickconn_host='.$this->arrReferenceTable[$tblId]['additional_params']['quickconn_host'];
-        $url .= '&quickconn_database='.$this->arrReferenceTable[$tblId]['additional_params']['quickconn_database'];
-        $url .= '&quickconn_username='.$this->arrReferenceTable[$tblId]['additional_params']['quickconn_username'];
-        $url .= '&quickconn_password='.$this->arrReferenceTable[$tblId]['additional_params']['quickconn_password'];
+        $url .= $this->appendGenericURLParam($tblId);
         return $url;
     }
 
@@ -167,13 +171,25 @@ class clsPhpMyJoomlaTableGen {
         $url .= './index.php?option=com_phpmyjoomla&view=managetables';
         $url .= '&ajax=1';
         $url .= '&ajaxaction=editrecord';
-        $url .= '&loaded_db='.$this->arrReferenceTable[$tblId]['db_name'];
-        $url .= '&loaded_table='.$this->arrReferenceTable[$tblId]['table_name'];
-        $url .= '&loaded_server='.$this->arrReferenceTable[$tblId]['server_id'];
-        $url .= '&quickconn_host='.$this->arrReferenceTable[$tblId]['additional_params']['quickconn_host'];
-        $url .= '&quickconn_database='.$this->arrReferenceTable[$tblId]['additional_params']['quickconn_database'];
-        $url .= '&quickconn_username='.$this->arrReferenceTable[$tblId]['additional_params']['quickconn_username'];
-        $url .= '&quickconn_password='.$this->arrReferenceTable[$tblId]['additional_params']['quickconn_password'];
+        $url .= $this->appendGenericURLParam($tblId);
+        return $url;
+    }
+
+    public function generateStateSaveAjaxURL($tblId) {
+        $url = '';
+        $url .= './index.php?option=com_phpmyjoomla&view=managetables';
+        $url .= '&ajax=1';
+        $url .= '&ajaxaction=savestate';
+        $url .= $this->appendGenericURLParam($tblId);
+        return $url;
+    }
+
+    public function generateStateLoadAjaxURL($tblId) {
+        $url = '';
+        $url .= './index.php?option=com_phpmyjoomla&view=managetables';
+        $url .= '&ajax=1';
+        $url .= '&ajaxaction=loadstate';
+        $url .= $this->appendGenericURLParam($tblId);
         return $url;
     }
 

@@ -1,4 +1,13 @@
-<?php function default_table_custom_query_inline_editor ($objThis,$tblId) {
+<?php
+/**
+ * @version     3.0.0
+ * @package     com_phpmyjoomla
+ * @copyright   Copyright (c) 2014-2020. Luis Orozco Olivares / phpMyjoomla. All rights reserved.
+ * @license     GNU General Public License version 3 or later; see LICENSE.txt
+ * @author      Luis Orozco Olivares <luisorozoli@gmail.com> - https://www.luisorozoli.com - https://www.phpmyjoomla.com
+ */
+
+function default_table_custom_query_inline_editor ($objThis,$tblId) {
     return '
         var editor;
         $(document).ready(function() {
@@ -116,8 +125,12 @@
                 "columns": ' . json_encode($objThis->getCustomColumns($tblId, $objThis->customQueryString, "data")[1]) . '
 
             }).columnFilter(getFilterOject());
+//            setInterval("reloadPage()", 180000 ); //reloadPage Every 3 minutes
         });
-//        setInterval("reloadPage()", 180000 ); //reloadPage Every 3 minutes
+        function statesave() {
+            var table = $("#example").DataTable();
+            table.state.save();
+        }
 //        function reloadPage() {
 //            var table = $("#customtable").DataTable();
 //            table.ajax.reload();

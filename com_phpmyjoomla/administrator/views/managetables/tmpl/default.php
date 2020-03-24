@@ -194,6 +194,73 @@ $configuration_accordion= JComponentHelper::getParams('com_phpmyjoomla')->get('c
         $("#frmselectserverdbtable").submit();
     });
 
+    $("#select_db" ).change(function() {
+        showLoadingDiv();
+        var blnAjaxSubmit = window.blnAjaxSubmission;
+        if (blnAjaxSubmit) {
+            showLoadingDiv();
+            $.ajax({
+                url : './index.php?option=com_phpmyjoomla&view=managetables&ajax=1&ajaxaction=generateoptionondatabasechange',
+                type: 'POST',
+                data: getServerFormDetails(),
+                async:false,
+                success: function(data) {
+                    var jsonResult = jQuery.parseJSON(data);
+                    $("#select_table").html(jsonResult.html);
+                }
+            }).done(function() {
+                hideLoadingDiv();
+            });
+        }
+        else {
+            showLoadingDiv();
+            $("#frmselectserverdbtable").submit();
+        }
+    });
+
+    $("#load_table" ).click(function() {
+        $("#loaded_server").val($("#select_server").val());
+        $("#loaded_db").val($("#select_db").val());
+        $("#loaded_table").val($("#select_table").val());
+        showLoadingDiv();
+        $("#frmselectserverdbtable").submit();
+    });
+
+    $("#save_filter" ).click(function() {
+        var fName = $("#filter_name" ).val();
+        if (fName == '') {
+            alert('Please specify a View Name.');
+        } else {
+            $("#flag_allowfiltersave").val('1');
+            statesave(fName);
+            $("#flag_allowfiltersave").val('0');
+            $.ajax({
+                url : './index.php?option=com_phpmyjoomla&view=managetables&ajax=1&ajaxaction=generateoptionfilter',
+                type: 'POST',
+                data: getServerFormDetails(),
+                async:false,
+                success: function(data) {
+                    var jsonResult = jQuery.parseJSON(data);
+                    $("#select_filters").html(jsonResult.html);
+                }
+            });
+            alert('Filter saved!');
+        }
+    });
+
+    $("#load_filter" ).click(function() {
+        if ($("#select_filters" ).val() == '<?php echo PMJ_VIEWS_NO_SELECT?>') {
+            alert('Please select a valid saved view.');
+        } else {
+            $("#flag_loadfromfilter").val('1');
+            showLoadingDiv();
+            $("#frmselectserverdbtable").submit();
+        }
+    });
+
+    $("#delete_filter" ).click(function() {
+    });
+
     $("#check_conn" ).click(function() {
         showLoadingDiv();
         var blnAjaxSubmit = window.blnAjaxSubmission;

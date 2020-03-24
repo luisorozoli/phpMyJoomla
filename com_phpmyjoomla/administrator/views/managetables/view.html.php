@@ -120,6 +120,12 @@ class phpMyJoomlaViewManagetables extends JViewLegacy {
                 case 'testconnection':
                     die($this->testConnection());
                     break;
+                case 'savestate':
+                    $this->saveFilter();
+                    break;
+                case 'loadstate':
+                    $this->loadFilter();
+                    break;
                 default: 
                     die('Invalid Ajax Request'); 
                     break;
@@ -259,6 +265,30 @@ class phpMyJoomlaViewManagetables extends JViewLegacy {
             $db = clsPhpMyJoomlaUtils::getDynamicDBO($this->select_server);
             $blnOk = clsPhpMyJoomlaUtils::testDynamicDBO($db);
             die(($blnOk == true)? '1':'0');
+        }
+
+        private function saveFilter() {
+            $filterState = json_encode($_POST);
+            $viewStateObject = new stdClass();
+            $viewStateObject->quickconn_host = JRequest::getVar('quickconn_host');
+            $viewStateObject->quickconn_database = JRequest::getVar('quickconn_database');
+            $viewStateObject->quickconn_username = JRequest::getVar('quickconn_username');
+            $viewStateObject->quickconn_password = JRequest::getVar('quickconn_password');
+            $viewStateObject->select_server = JRequest::getVar('select_server');
+            $viewStateObject->select_db = JRequest::getVar('select_db');
+            $viewStateObject->select_table = JRequest::getVar('select_table');
+            $viewStateObject->select_filters = JRequest::getVar('select_filters');
+            $viewStateObject->loaded_server = JRequest::getVar('loaded_server');
+            $viewStateObject->loaded_db = JRequest::getVar('loaded_db');
+            $viewStateObject->loaded_table = JRequest::getVar('loaded_table');
+            $viewState = serialize($viewStateObject);
+            log_event($filterState);
+            clsPhpMyJoomlaUtils::saveTableFilter($this->fName, $filterState,$viewState);
+        }
+
+        private function loadFilter() {
+            $filterItem = clsPhpMyJoomlaUtils::retrieveTableFilter($this->select_filters);
+            die($filterItem->datatable_state);
         }
         
         private function updateRecord() {
