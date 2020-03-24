@@ -86,7 +86,7 @@ class Com_phpMyJoomlaInstallerScript
 				<br/>
 				<h3>Our Location</h3>
 				<p>
-					Luis Orozco Olivares | luisorozoli.com | Jaén (Spain) | Spanish & English
+					Luis Orozco Olivares | <a href='https://www.luisorozoli.com' target="_blank">www.luisorozoli.com</a> | Jaén (Spain) | Spanish & English.
 				</p>
 				<br/>
 			</div>
