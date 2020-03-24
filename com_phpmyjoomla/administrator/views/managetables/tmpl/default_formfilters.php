@@ -89,13 +89,13 @@ $ed_inline_editing= JComponentHelper::getParams('com_phpmyjoomla')->get('ed_inli
         <?php if ($ed_inline_editing) { ?>
             <div class="alert alert-warning alert-dismissible span4 savedlistqueries" id="cookieAcceptBar">
                 <a id="cookieAcceptBarConfirm" href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                <h3><strong><?php echo JText::_('COM_PHPMYJOOMLA_QUICKCONNECTION_TEXT_TITLE_EDITOR');?></strong></h3>
+                <h4><strong><?php echo JText::_('COM_PHPMYJOOMLA_QUICKCONNECTION_TEXT_TITLE_EDITOR');?></strong></h4>
                 <p><?php echo JText::_('COM_PHPMYJOOMLA_QUICKCONNECTION_TEXT_EDITOR_WARNING');?></p>
             </div>
         <?php } else { ?>
             <div class="alert alert-warning alert-dismissible span4 savedlistqueries" id="cookieAcceptBar">
                 <a id="cookieAcceptBarConfirm" href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                <h3><strong><?php echo JText::_('COM_PHPMYJOOMLA_QUICKCONNECTION_TEXT_TITLE_EDITOR_NO');?></strong></h3>
+                <h4><strong><?php echo JText::_('COM_PHPMYJOOMLA_QUICKCONNECTION_TEXT_TITLE_EDITOR_NO');?></strong></h4>
                 <p><?php echo JText::_('COM_PHPMYJOOMLA_QUICKCONNECTION_TEXT_EDITOR_NO_WARNING');?></p>
             </div>
         <?php } ?>

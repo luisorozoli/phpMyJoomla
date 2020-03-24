@@ -19,10 +19,10 @@ defined('_JEXEC') or die('Restricted access');
             </a>
         </div>
         <div class="span5">
-            <h2><?php echo JText::_('COM_PHPMYJOOMLA_TEXT_PRINCIPALTITLE');?></h2>
-            <a href="https://www.phpmyjoomla.com/member-login" target="_blank"><button type="button" class="btn btn-success"><i class="fa fa-users pad-r10"></i><?php echo JText::_('COM_PHPMYJOOMLA_TEXTBUTTON_MEMBERS');?></button></a>
-            <a href="https://www.phpmyjoomla.com/support" target="_blank"><button type="button" class="btn btn-success"><i class="fa fa-question-circle pad-r10"></i><?php echo JText::_('COM_PHPMYJOOMLA_TEXTBUTTON_SUPPORT');?></button></a>
-            <a href="https://www.phpmyjoomla.com" target="_blank"><button type="button" class="btn btn-info"><i class="fa fa-book pad-r10"></i><?php echo JText::_('COM_PHPMYJOOMLA_TEXTBUTTON_DOCUMENTATION');?></button></a>
+            <h3><?php echo JText::_('COM_PHPMYJOOMLA_TEXT_PRINCIPALTITLE');?></h3>
+            <a href="https://www.phpmyjoomla.com/member-login" target="_blank"><button style="font-size: 11px;" type="button" class="btn btn-success"><i class="fa fa-users pad-r10"></i><?php echo JText::_('COM_PHPMYJOOMLA_TEXTBUTTON_MEMBERS');?></button></a>
+            <a href="https://www.phpmyjoomla.com/support" target="_blank"><button style="font-size: 11px;" type="button" class="btn btn-success"><i class="fa fa-question-circle pad-r10"></i><?php echo JText::_('COM_PHPMYJOOMLA_TEXTBUTTON_SUPPORT');?></button></a>
+            <a href="https://www.phpmyjoomla.com" target="_blank"><button style="font-size: 11px;" type="button" class="btn btn-info"><i class="fa fa-book pad-r10"></i><?php echo JText::_('COM_PHPMYJOOMLA_TEXTBUTTON_DOCUMENTATION');?></button></a>
 
             <div class="overlay" id="overlay2" style="display:none;">
             </div>
@@ -87,7 +87,7 @@ defined('_JEXEC') or die('Restricted access');
                     </div>
                 </div>
             </div>
-            <a id="list" style="" href="#"><button id="activator2" class="btn btn-info"><i class="fas fa-wrench pad-r10"></i><?php echo JText::_('COM_PHPMYJOOMLA_TOOLS_BUTTON_TITLE');?></button></a>
+            <a id="list" style="" href="#"><button style="font-size: 11px;" id="activator2" class="btn btn-info"><i class="fas fa-wrench pad-r10"></i><?php echo JText::_('COM_PHPMYJOOMLA_TOOLS_BUTTON_TITLE');?></button></a>
         </div>
         <div class="span3 esbutton fright">
             <!-- Link to open the modal -->
@@ -101,6 +101,6 @@ defined('_JEXEC') or die('Restricted access');
             <img class="fright" src="components/com_phpmyjoomla/assets/images/phpmyjoomla/joomla_3x.png" alt="Joomla Compact 3.x logo" />
         </div>
         <br />
-        <a href="index.php?option=com_phpmyjoomla&view=serverss"><button type="button" class="btn btn-primary fright"><i class="fa fa-cubes pad-r10"></i><?php echo JText::_('COM_PHPMYJOOMLA_TEXTBUTTON_EXTERNALSERVERS');?></button></a>
+        <a href="index.php?option=com_phpmyjoomla&view=serverss"><button style="font-size: 11px;" type="button" class="btn btn-primary fright"><i class="fa fa-cubes pad-r10"></i><?php echo JText::_('COM_PHPMYJOOMLA_TEXTBUTTON_EXTERNALSERVERS');?></button></a>
     </div>
 </div>
