@@ -86,7 +86,7 @@ class Pkg_phpMyJoomlaInstallerScript
 				<br/>
 				<h3>Our Location</h3>
 				<p>
-					Luis Orozco Olivares | London (United Kingdom) | Spanish & English
+					Luis Orozco Olivares | luisorozoli.com | Jaén (Spain) | Spanish & English
 				</p>
 				<br/>
 			</div>
