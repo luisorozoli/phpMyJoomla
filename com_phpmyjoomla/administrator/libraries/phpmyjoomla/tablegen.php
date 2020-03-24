@@ -11,10 +11,10 @@
 //$ed_inline_editing= JComponentHelper::getParams('com_phpmyjoomla')->get('ed_inline_editing','0');
 
 class clsPhpMyJoomlaTableGen {
-    protected $arrReferenceTable = array();
-    protected $filterColumnPrefix = 'c';
-    protected $filterColumnCountPerRow = 5;
-    protected $customQueryString = '';
+    public $arrReferenceTable = array();
+    public $filterColumnPrefix = 'c';
+    public $filterColumnCountPerRow = 5;
+    public $customQueryString = '';
 
     public function addTable($tblId, $tablename, $dbname, $serverID, $additionalParams) {
         $this->arrReferenceTable[$tblId] = $this->detectTable($tablename, $dbname, $serverID, $additionalParams);
@@ -132,7 +132,7 @@ class clsPhpMyJoomlaTableGen {
         return $html;
     }
 
-    private function generateAjaxURL($tblId) {
+    public function generateAjaxURL($tblId) {
         $url = '';
         $url .= './index.php?option=com_phpmyjoomla&view=managetables';
         $url .= '&ajax=1';
@@ -147,7 +147,7 @@ class clsPhpMyJoomlaTableGen {
         return $url;
     }
 
-    private function generateCustomQueryAjaxURL($tblId) {
+    public function generateCustomQueryAjaxURL($tblId) {
         $url = '';
         $url .= './index.php?option=com_phpmyjoomla&view=managetables';
         $url .= '&ajax=1';
@@ -162,7 +162,7 @@ class clsPhpMyJoomlaTableGen {
         return $url;
     }
 
-    private function generateEditAjaxURL($tblId) {
+    public function generateEditAjaxURL($tblId) {
         $url = '';
         $url .= './index.php?option=com_phpmyjoomla&view=managetables';
         $url .= '&ajax=1';
@@ -198,127 +198,8 @@ class clsPhpMyJoomlaTableGen {
         if ($ed_inline_editing) { //If inline Editing
             $html = '';
             if (isset($this->arrReferenceTable[$tblId])) {
-                $html .= '
-                    var editor;
-                    $(document).ready(function() {
-                        // DISABLE/ENABLE EDITOR
-                        editor = new $.fn.dataTable.Editor( {
-                            ajax: {
-                                url: "' . $this->generateEditAjaxURL($tblId) . '",
-                                data: {table:' . json_encode($this->arrReferenceTable[$tblId]) . '},
-                                dataType: "json",
-                            },
-                            table: "#example",
-                            idSrc:  "' . $this->arrReferenceTable[$tblId]['primary'] . '",
-                            fields: ' . $this->generateEditorFields($this->arrReferenceTable[$tblId]) . ',
-                            i18n: {
-                                create: {
-                                    button: "'.JText::_('COM_PHPMYJOOMLA_IE_CREATE_BUTTON').'",
-                                    title:  "'.JText::_('COM_PHPMYJOOMLA_IE_CREATE_TITLE').'",
-                                    submit: "'.JText::_('COM_PHPMYJOOMLA_IE_CREATE_SUBMIT').'"
-                                },
-                                edit: {
-                                    button: "'.JText::_('COM_PHPMYJOOMLA_IE_EDIT_BUTTON').'",
-                                    title:  "'.JText::_('COM_PHPMYJOOMLA_IE_EDIT_TITLE').'",
-                                    submit: "'.JText::_('COM_PHPMYJOOMLA_IE_EDIT_SUBMIT').'"
-                                },
-                                remove: {
-                                    button: "'.JText::_('COM_PHPMYJOOMLA_IE_REMOVE_BUTTON').'",
-                                    title:  "'.JText::_('COM_PHPMYJOOMLA_IE_REMOVE_TITLE').'",
-                                    submit: "'.JText::_('COM_PHPMYJOOMLA_IE_REMOVE_SUBMIT').'",
-                                    confirm: {
-                                        _: "'.JText::_('COM_PHPMYJOOMLA_IE_REMOVE_COMFIRM_MORE').'",
-                                        1: "'.JText::_('COM_PHPMYJOOMLA_IE_REMOVE_COMFIRM_ONE').'"
-                                    }
-                                },
-                                error: {
-                                    "system": "'.JText::_('COM_PHPMYJOOMLA_IE_ERROR_SYSTEM').'"
-                                },
-                                "multi": {
-                                    "title": "'.JText::_('COM_PHPMYJOOMLA_IE_MULTI_TITLE').'",
-                                    "info": "'.JText::_('COM_PHPMYJOOMLA_IE_MULTI_INFO').'",
-                                    "restore": "'.JText::_('COM_PHPMYJOOMLA_IE_MULTI_RESTORE').'",
-                                    "noMulti": "'.JText::_('COM_PHPMYJOOMLA_IE_MULTI_NOMULTI').'"
-                                },
-                                datetime: {
-                                    "previous": "'.JText::_('COM_PHPMYJOOMLA_IE_DATETIME_PREVIOUS').'",
-                                    "next":     "'.JText::_('COM_PHPMYJOOMLA_IE_DATETIME_NEXT').'",
-                                    "months":   "'.JText::_('COM_PHPMYJOOMLA_IE_DATETIME_MONTHS').'",
-                                    "weekdays": "'.JText::_('COM_PHPMYJOOMLA_IE_DATETIME_WEEKDAYS').'",
-                                    "amPm":     [ "am", "pm" ],
-                                    "unknown":  "-"
-                                }
-                            }
-                        });
-                        // END DISABLE/ENABLE EDITOR
-                        // DISABLE/ENABLE EDITOR
-                        editor.on( "postSubmit", function ( e, json, data, action ) {
-                            var jsonArray = [];
-                            var jsonObject;
-                            $.each(json, function(index, element) {
-                                var content = {};
-                                content[index] = element;
-                                jsonArray.push(content);
-                            });
-                            jsonObject = jsonArray[0];
-                            if ("error" in jsonObject) {
-                                alert(jsonObject.error);
-                            } else {
-                                $("#alert-success").fadeTo(2000, 500).slideUp(500, function() {
-                                    $("#alert-success").slideUp(500);
-                                });
-                            }
-                        });
-                        // END DISABLE/ENABLE EDITOR
-                        // DISABLE/ENABLE EDITOR
-                        // Activate an inline edit on click of a table cell
-                        $("#example").on( "click", "tbody td:not(:first-child)", function (e) {
-                            editor.inline( this, {
-                                "onBlur": "submit"
-                            });
-                        });
-                        // END DISABLE/ENABLE EDITOR
-
-                        $("#example").dataTable( {
-                            "language": {
-                                "url": "'.JText::_('COM_PHPMYJOOMLA_IE_LANGUAGE_URL').'"
-                            },
-                            "ajax": "' . $this->generateAjaxURL($tblId) . '",
-                            "deferRender": true,
-                            "dom": "Bfrtip",
-                            "lengthMenu": [[10, 25, 50, -1], ["10 '.JText::_('COM_PHPMYJOOMLA_IE_LANGUAGE_LENGMENU_R').'", "25 '.JText::_('COM_PHPMYJOOMLA_IE_LANGUAGE_LENGMENU_R').'", "50 '.JText::_('COM_PHPMYJOOMLA_IE_LANGUAGE_LENGMENU_R').'", "'.JText::_('COM_PHPMYJOOMLA_IE_LANGUAGE_LENGMENU_R_ALL').'"]],
-                            "select": true,
-                            "buttons": [
-                                // DISABLE/ENABLE EDITOR
-                                { extend: "create", editor: editor, className: "green" },
-                                { extend: "edit",   editor: editor, className: "orange" },
-                                { extend: "remove", editor: editor, className: "red" },
-                                // END DISABLE/ENABLE EDITOR
-                                "copy",
-                                "csv",
-                                "excel",
-                                "pdf",
-                                "print",
-                                "pageLength",
-                                {
-                                    "extend": "colvis",
-                                    "postfixButtons": [ "colvisRestore" ]
-                                }
-                            ],
-                            "colReorder": true,
-                            "scrollX": true,
-                            "pagingType": "full_numbers",
-
-                            "columns": ' . $this->generateDataTableColumns($this->arrReferenceTable[$tblId]) . '
-
-                        }).columnFilter(getFilterOject());
-//                        setInterval("reloadPage()", 180000 ); //reloadPage Every 3 minutes
-                    });
-//                   function reloadPage() {
-//                       var table = $("#example").DataTable();
-//                   table.ajax.reload();
-//                   }
-                ';
+                include 'datatablescripts/default_table_inline_editing.php';
+                $html =  default_table_inline_editing($this,$tblId);
                 $html .= 'function getFilterOject() {';
                 $html .= 'return ';
                 $noOfColumns = count($this->arrReferenceTable[$tblId]['db_columns']);
@@ -336,48 +217,8 @@ class clsPhpMyJoomlaTableGen {
         } else { //If NOT Inline Editing
             $html = '';
             if (isset($this->arrReferenceTable[$tblId])) {
-                $html .= '
-                    $(document).ready(function() {
-                        $("#example").dataTable( {
-                            "language": {
-                                "url": "'.JText::_('COM_PHPMYJOOMLA_IE_LANGUAGE_URL').'"
-                            },
-                            "ajax": "'.$this->generateAjaxURL($tblId).'",
-                            "deferRender": true,
-                            "dom": "Bfrtip",
-                            "lengthMenu": [[10, 25, 50, -1], ["10 '.JText::_('COM_PHPMYJOOMLA_IE_LANGUAGE_LENGMENU_R').'", "25 '.JText::_('COM_PHPMYJOOMLA_IE_LANGUAGE_LENGMENU_R').'", "50 '.JText::_('COM_PHPMYJOOMLA_IE_LANGUAGE_LENGMENU_R').'", "'.JText::_('COM_PHPMYJOOMLA_IE_LANGUAGE_LENGMENU_R_ALL').'"]],
-                            "select": true,
-                            buttons: [
-                                "copy",
-                                "csv",
-                                "excel",
-                                "pdf",
-                                "print",
-                                "pageLength",
-                                {
-                                    "extend": "colvis",
-                                    "postfixButtons": [ "colvisRestore" ]
-                                }
-                            ],
-                            "select": {
-                                "style":    "os",
-                                "selector": "td:first-child"
-                            },
-                            "keys": true,
-                            "colReorder": true,
-                            "scrollX": true,
-                            "pagingType": "full_numbers",
-
-                            columns: '.$this->generateDataTableColumns($this->arrReferenceTable[$tblId]).'
-
-                        }).columnFilter(getFilterOject());
-//                        setInterval("reloadPage()", 180000 ); //reloadPage Every 3 minutes
-                    });
-//                    function reloadPage() {
-//                        var table = $("#example").DataTable();
-//                    table.ajax.reload();
-//                    }
-                ';
+                include 'datatablescripts/default_table_no_inline_editing.php';
+                $html =  default_table_no_inline_editing($this,$tblId);
                 $html .= 'function getFilterOject() {';
                 $html .= 'return ';
                 $noOfColumns = count($this->arrReferenceTable[$tblId]['db_columns']);
@@ -398,148 +239,44 @@ class clsPhpMyJoomlaTableGen {
     public function renderCustomTableScripts($tblId) { //If custom query
         //Component Options
         $ed_custom_query= JComponentHelper::getParams('com_phpmyjoomla')->get('ed_custom_query','0');
+        $ed_inline_editing= JComponentHelper::getParams('com_phpmyjoomla')->get('ed_inline_editing','0');
 
-        if ($ed_custom_query) { //If inline Editing
-            $html = '';
-            $html .= '
-            var editor;
-                $(document).ready(function() {
-                    // DISABLE/ENABLE EDITOR
-                    editor = new $.fn.dataTable.Editor( {
-                        ajax: {
-                            url: "' . $this->generateEditAjaxURL($tblId) . '",
-                            data: {table:' . json_encode($this->arrReferenceTable[$tblId]) . '},
-                            dataType: "json",
-                        },
-                        table: "#customtable",
-                        idSrc:  "' . $this->arrReferenceTable[$tblId]['primary'] . '",
-                        fields: ' . $this->generateEditorFields($this->arrReferenceTable[$tblId]) . ',
-                        i18n: {
-                            create: {
-                                button: "' . JText::_('COM_PHPMYJOOMLA_IE_CREATE_BUTTON') . '",
-                                title:  "' . JText::_('COM_PHPMYJOOMLA_IE_CREATE_TITLE') . '",
-                                submit: "' . JText::_('COM_PHPMYJOOMLA_IE_CREATE_SUBMIT') . '"
-                            },
-                            edit: {
-                                button: "' . JText::_('COM_PHPMYJOOMLA_IE_EDIT_BUTTON') . '",
-                                title:  "' . JText::_('COM_PHPMYJOOMLA_IE_EDIT_TITLE') . '",
-                                submit: "' . JText::_('COM_PHPMYJOOMLA_IE_EDIT_SUBMIT') . '"
-                            },
-                            remove: {
-                                button: "' . JText::_('COM_PHPMYJOOMLA_IE_REMOVE_BUTTON') . '",
-                                title:  "' . JText::_('COM_PHPMYJOOMLA_IE_REMOVE_TITLE') . '",
-                                submit: "' . JText::_('COM_PHPMYJOOMLA_IE_REMOVE_SUBMIT') . '",
-                                confirm: {
-                                    _: "' . JText::_('COM_PHPMYJOOMLA_IE_REMOVE_COMFIRM_MORE') . '",
-                                    1: "' . JText::_('COM_PHPMYJOOMLA_IE_REMOVE_COMFIRM_ONE') . '"
-                                }
-                            },
-                            error: {
-                                "system": "' . JText::_('COM_PHPMYJOOMLA_IE_ERROR_SYSTEM') . '"
-                            },
-                            "multi": {
-                                "title": "' . JText::_('COM_PHPMYJOOMLA_IE_MULTI_TITLE') . '",
-                                "info": "' . JText::_('COM_PHPMYJOOMLA_IE_MULTI_INFO') . '",
-                                "restore": "' . JText::_('COM_PHPMYJOOMLA_IE_MULTI_RESTORE') . '",
-                                "noMulti": "' . JText::_('COM_PHPMYJOOMLA_IE_MULTI_NOMULTI') . '"
-                            },
-                            datetime: {
-                                "previous": "' . JText::_('COM_PHPMYJOOMLA_IE_DATETIME_PREVIOUS') . '",
-                                "next":     "' . JText::_('COM_PHPMYJOOMLA_IE_DATETIME_NEXT') . '",
-                                "months":   "' . JText::_('COM_PHPMYJOOMLA_IE_DATETIME_MONTHS') . '",
-                                "weekdays": "' . JText::_('COM_PHPMYJOOMLA_IE_DATETIME_WEEKDAYS') . '",
-                                "amPm":     [ "am", "pm" ],
-                                "unknown":  "-"
-                            }
-                        }
-                    });
-                    // END DISABLE/ENABLE EDITOR
-                    // DISABLE/ENABLE EDITOR
-                    editor.on( "postSubmit", function ( e, json, data, action ) {
-                        var jsonArray = [];
-                        var jsonObject;
-                        $.each(json, function(index, element) {
-                            var content = {};
-                            content[index] = element;
-                            jsonArray.push(content);
-                        });
-                        jsonObject = jsonArray[0];
-                        if ("error" in jsonObject) {
-                            alert(jsonObject.error);
-                        } else {
-                            $("#alert-success").fadeTo(2000, 500).slideUp(500, function() {
-                                $("#alert-success").slideUp(500);
-                            });
-                        }
-                    });
-                    // END DISABLE/ENABLE EDITOR
-                    // DISABLE/ENABLE EDITOR
-                    // Activate an inline edit on click of a table cell
-                    $("#customtable").on( "click", "tbody td:not(:first-child)", function (e) {
-                        editor.inline( this, {
-                            "onBlur": "submit"
-                        });
-                    });
-                    // END DISABLE/ENABLE EDITOR
-
-                    $("#customtable").dataTable( {
-                        "language": {
-                            "url": "' . JText::_('COM_PHPMYJOOMLA_IE_LANGUAGE_URL') . '"
-                        },
-                        ajax: {
-                            url: "' . $this->generateCustomQueryAjaxURL($tblId) . '",
-                            data: {queryString: "' . $this->customQueryString . '"},
-                            dataType: "json"
-                        },
-                        "deferRender": true,
-                        "dom": "Bfrtip",
-                        "lengthMenu": [[10, 25, 50, -1], ["10 ' . JText::_('COM_PHPMYJOOMLA_IE_LANGUAGE_LENGMENU_R') . '", "25 ' . JText::_('COM_PHPMYJOOMLA_IE_LANGUAGE_LENGMENU_R') . '", "50 ' . JText::_('COM_PHPMYJOOMLA_IE_LANGUAGE_LENGMENU_R') . '", "' . JText::_('COM_PHPMYJOOMLA_IE_LANGUAGE_LENGMENU_R_ALL') . '"]],
-                        "select": true,
-                        buttons: [
-                            // DISABLE/ENABLE EDITOR
-                            { extend: "create", editor: editor, className: "green" },
-                            { extend: "edit",   editor: editor, className: "orange" },
-                            { extend: "remove", editor: editor, className: "red" },
-                            // END DISABLE/ENABLE EDITOR
-                            "copy",
-                            "csv",
-                            "excel",
-                            "pdf",
-                            "print",
-                            "pageLength",
-                            {
-                                "extend": "colvis",
-                                "postfixButtons": [ "colvisRestore" ]
-                            }
-                        ],
-                        "colReorder": true,
-                        "scrollX": true,
-                        "pagingType": "full_numbers",
-
-                        "columns": ' . json_encode($this->getCustomColumns($tblId, $this->customQueryString, "data")[1]) . '
-
-                    }).columnFilter(getFilterOject());
-                });
-
-//                setInterval("reloadPage()", 180000 ); //reloadPage Every 3 minutes
-//                function reloadPage() {
-//                    var table = $("#customtable").DataTable();
-//                table.ajax.reload();
-//            }
-            ';
-            $html .= 'function getFilterOject() {';
-            $html .= 'return ';
-            $noOfColumns = count($this->getCustomColumns($tblId, $this->customQueryString)[1]);
-            $html .= '{';
-            $html .= '"sPlaceHolder": "head:before",';
-            $html .= '"aoColumns":[';
-            for ($cnt = 1; $cnt <= $noOfColumns; $cnt++) {
-                $html .= '{"sSelector": "#' . ($this->filterColumnPrefix . strval($cnt)) . '"},';
+        if ($ed_custom_query) { //If custom query
+            if ($ed_inline_editing) { //If inline Editing
+                $html = '';
+                include 'datatablescripts/default_table_custom_query_inline_editor.php';
+                $html =  default_table_custom_query_inline_editor($this,$tblId);
+                $html .= 'function getFilterOject() {';
+                $html .= 'return ';
+                $noOfColumns = count($this->getCustomColumns($tblId, $this->customQueryString)[1]);
+                $html .= '{';
+                $html .= '"sPlaceHolder": "head:before",';
+                $html .= '"aoColumns":[';
+                for ($cnt = 1; $cnt <= $noOfColumns; $cnt++) {
+                    $html .= '{"sSelector": "#' . ($this->filterColumnPrefix . strval($cnt)) . '"},';
+                }
+                $html = mb_substr($html, 0, -1); //remove last comma
+                $html .= ']};';
+                $html .= '}';
+                return $html;
+            } else { //If NOT Inline Editing
+                $html = '';
+                include 'datatablescripts/default_table_custom_query_no_inline_editor.php';
+                $html =  default_table_custom_query_no_inline_editor($this,$tblId);
+                $html .= 'function getFilterOject() {';
+                $html .= 'return ';
+                $noOfColumns = count($this->getCustomColumns($tblId, $this->customQueryString)[1]);
+                $html .= '{';
+                $html .= '"sPlaceHolder": "head:before",';
+                $html .= '"aoColumns":[';
+                for ($cnt = 1; $cnt <= $noOfColumns; $cnt++) {
+                    $html .= '{"sSelector": "#' . ($this->filterColumnPrefix . strval($cnt)) . '"},';
+                }
+                $html = mb_substr($html, 0, -1); //remove last comma
+                $html .= ']};';
+                $html .= '}';
+                return $html;
             }
-            $html = mb_substr($html, 0, -1); //remove last comma
-            $html .= ']};';
-            $html .= '}';
-            return $html;
         }
     }
 
@@ -619,7 +356,7 @@ class clsPhpMyJoomlaTableGen {
         return json_encode($jsonphpMyJoomla);
     }
 
-    private function detectTable($tablename, $dbname, $serverID,$additionalParams) {
+    public function detectTable($tablename, $dbname, $serverID,$additionalParams) {
         // Detect the table
         $db = clsPhpMyJoomlaUtils::getDynamicDBO($serverID);
         $sql =  "SHOW COLUMNS FROM  `". $tablename . "`";
@@ -653,7 +390,7 @@ class clsPhpMyJoomlaTableGen {
         return $tblData;
     }
 
-    private function getTablePrimaryKey($tablename, $dbname, $serverID) {
+    public function getTablePrimaryKey($tablename, $dbname, $serverID) {
         $db = clsPhpMyJoomlaUtils::getDynamicDBO($serverID);
         $sql =  "SHOW INDEX FROM  `". $tablename . "` ";
         if (!empty($dbname)) {
@@ -666,7 +403,7 @@ class clsPhpMyJoomlaTableGen {
         return $result['Column_name'];
     }
 
-    private function getFieldDataTypes($tablename, $dbname, $serverID) {
+    public function getFieldDataTypes($tablename, $dbname, $serverID) {
         $db = clsPhpMyJoomlaUtils::getDynamicDBO($serverID);
         $sql =  "SELECT DATA_TYPE FROM INFORMATION_SCHEMA.columns";
         if (!empty($dbname)) {
@@ -685,7 +422,7 @@ class clsPhpMyJoomlaTableGen {
         return $arrTypes;
     }
 
-    private function generateDataTableColumns($table) {
+    public function generateDataTableColumns($table) {
         $columnArray = array();
         foreach($table['db_columns'] as $column) {
             $columnArray[] = array('data' => $column);
@@ -696,7 +433,7 @@ class clsPhpMyJoomlaTableGen {
         return json_encode($columnArray);
     }
 
-    private function generateEditorFields($table) {
+    public function generateEditorFields($table) {
         $columnArray = array();
         foreach($table['db_columns'] as $column) {
             //$columnArray[] = array('label' => $column, 'name' => $column, 'type' =>  "readonly"); => for with readonly fields, check field if it should be readonly
