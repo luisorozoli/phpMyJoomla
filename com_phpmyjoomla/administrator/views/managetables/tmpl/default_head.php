@@ -42,8 +42,8 @@ defined('_JEXEC') or die('Restricted access');
     $doc->addScript(JURI::root() . 'administrator/components/com_phpmyjoomla/assets/js/buttons.colVis.min.js');
     $doc->addScript(JURI::root() . 'administrator/components/com_phpmyjoomla/assets/js/dataTables.colReorder.js');
     $doc->addScript(JURI::root() . 'administrator/components/com_phpmyjoomla/assets/js/jquery.dataTables.columnFilter.js');
-    $doc->addScript(JURI::root() . 'administrator/components/com_phpmyjoomla/assets/js/dataTables.select.min.js');
     $doc->addScript(JURI::root() . 'administrator/components/com_phpmyjoomla/assets/js/dataTables.keyTable.min.js');
+    $doc->addScript(JURI::root() . 'administrator/components/com_phpmyjoomla/assets/js/dataTables.select.min.js');
 
     $doc->addScript(JURI::root() . 'administrator/components/com_phpmyjoomla/assets/js/editor/dataTables.editor.min.js');
 
