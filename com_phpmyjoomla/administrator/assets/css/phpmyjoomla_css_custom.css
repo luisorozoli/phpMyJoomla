@@ -20,7 +20,7 @@ input#load_table {
     margin: 0 0 -10px !important;
 }
 input.buttons-phpmyjoomla-blue {
-    border-radius: 5px;
+    border-radius: 3px;
     border-color: #2f96b4;
     margin-top: -10px;
     margin-left: -10px;
@@ -125,6 +125,7 @@ div.ColVis {
     padding-right:35px;
     background:#eee url(../images/filters.png) no-repeat center right;
     background-position: 95%;
+    border-radius: 3px;
 }
 .shfilters:hover {
     font-weight: bold;
@@ -133,6 +134,7 @@ div.ColVis {
     padding-right:35px;
     background:url(../images/filters_h.png) no-repeat center right;
     background-position: 95%;
+    border-radius: 3px;
 }
 .shcustom {
     color: #1c94c4;
@@ -142,6 +144,7 @@ div.ColVis {
     padding-right:35px;
     background:#eee url(../images/filters.png) no-repeat center right;
     background-position: 97%;
+    border-radius: 3px;
 }
 .shcustom:hover {
     font-weight: bold;
@@ -150,12 +153,14 @@ div.ColVis {
     padding-right:35px;
     background:url(../images/filters_h.png) no-repeat center right;
     background-position: 97%;
+    border-radius: 3px;
 }
 .activator {
     background:#eee url(../images/manual.png) no-repeat center right;
     padding:5px;
     padding-right:23px;
     font-weight: bold;
+    border-radius: 3px;
 }
 a.DTTT_button_copy {
     padding-right:30px;
@@ -338,4 +343,8 @@ div#example_filter {
 
 .vector-brand-circle {
     fill: #25A9E1;
+}
+
+button.dt-button, div.dt-button, a.dt-button {
+    border-radius: 3px !important;
 }
