@@ -75,7 +75,7 @@ $configuration_accordion= JComponentHelper::getParams('com_phpmyjoomla')->get('c
                 <div class="col-12 no-padding accordion-head3">
                     <a data-toggle="collapse" data-parent="#accordion" href="#accordionBodyThree" aria-expanded="false" aria-controls="accordionBodyThree"
                        class="collapsed ">
-                        <i class="fa fa-angle-down" aria-hidden="true"></i>
+                        <i class="fa fa-angle-up" aria-hidden="true"></i>
                         <h3 style="margin-left: 40px;line-height: 30px;"><?php echo JText::_('COM_PHPMYJOOMLA_ACCORDION_TITLE3');?></h3>
                     </a>
                 </div>
@@ -89,8 +89,8 @@ $configuration_accordion= JComponentHelper::getParams('com_phpmyjoomla')->get('c
                 }
                 ?>
             </div>
+            <?php echo $this->loadTemplate('footer'); ?>
         </div>
-        <?php echo $this->loadTemplate('footer'); ?>
     </div>
 <?php } else { ?>
     <?php echo $this->loadTemplate('header');?>
