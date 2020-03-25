@@ -9,7 +9,7 @@
     <authorUrl>https://www.luisorozoli.com</authorUrl>
     <url>https://www.phpmyjoomla.com</url>
     <version>3.0.0</version>
-    <description>COM_PHPMYJOOMLA_PKG_DESCRIPTION</description>
+    <description>phpMyJoomla installation package v3.0.0</description>
     <packagename>phpmyjoomla</packagename>
     <packager>phpmyjoomla</packager>
     <packagerurl>https://www.phpmyjoomla.com</packagerurl>
