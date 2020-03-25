@@ -1,13 +1,4 @@
-<?php
-/**
- * @version     3.0.0
- * @package     com_phpmyjoomla
- * @copyright   Copyright (c) 2014-2020. Luis Orozco Olivares / phpMyjoomla. All rights reserved.
- * @license     GNU General Public License version 3 or later; see LICENSE.txt
- * @author      Luis Orozco Olivares <luisorozoli@gmail.com> - https://www.luisorozoli.com - https://www.phpmyjoomla.com
- */
-
-function default_table_inline_editing ($objThis,$tblId) {
+<?php function default_table_inline_editing ($objThis,$tblId) {
     return '
         var editor;
         $(document).ready(function() {
@@ -121,45 +112,9 @@ function default_table_inline_editing ($objThis,$tblId) {
 
                 "columns": ' . $objThis->generateDataTableColumns($objThis->arrReferenceTable[$tblId]) . '
 
-                "stateSave": true,
-                "stateSaveCallback": function (settings, data) {
-                    var fName = $("#filter_name" ).val();
-                    var blnAllowFiltersave = $("#flag_allowfiltersave" ).val();
-                    flag_allowfiltersave
-                    if ((fName != \'\') && (blnAllowFiltersave == \'1\')) {
-                        // Send an Ajax request to the server with the state object
-                        $.ajax( {
-                          "url": "'.$this->generateStateSaveAjaxURL($tblId).'&fName=" + fName,
-                          "data": data,
-                          "dataType": "json",
-                          "method": "POST",
-                          "success": function () {}
-                        });
-                    }
-                },
-                "stateLoadCallback": function (settings) {
-                    var o;
-                    // Send an Ajax request to the server to get the data. Note that
-                    // this is a synchronous request since the data is expected back from the
-                    // function
-                    $.ajax( {
-                      "url": "'.$this->generateStateLoadAjaxURL($tblId).'",
-                      "async": false,
-                      "dataType": "json",
-                      "success": function (json) {
-                        o = json;
-                      }
-                    });
-                    return o;
-                },
-
             }).columnFilter(getFilterOject());
 //            setInterval("reloadPage()", 180000 ); //reloadPage Every 3 minutes
         });
-        function statesave() {
-            var table = $("#example").DataTable();
-            table.state.save();
-        }
 //        function reloadPage() {
 //            var table = $("#example").DataTable();
 //            table.ajax.reload();
