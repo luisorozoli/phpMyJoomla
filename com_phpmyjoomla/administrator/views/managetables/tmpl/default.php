@@ -91,6 +91,9 @@ $configuration_accordion= JComponentHelper::getParams('com_phpmyjoomla')->get('c
             </div>
         </div>
     </div>
+
+    <?php echo $this->loadTemplate('footer'); ?>
+
 <?php } else { ?>
     <?php echo $this->loadTemplate('header');?>
     <div class="span12">
@@ -105,9 +108,9 @@ $configuration_accordion= JComponentHelper::getParams('com_phpmyjoomla')->get('c
         echo $this->loadTemplate('formtable');
     }
     ?>
+    <?php echo $this->loadTemplate('footer'); ?>
 <?php }  ?>
 </div>
-<?php echo $this->loadTemplate('footer'); ?>
 </body>
 </html>
 <script>

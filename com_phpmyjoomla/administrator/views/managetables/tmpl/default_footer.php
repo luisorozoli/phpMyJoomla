@@ -14,7 +14,7 @@ defined('_JEXEC') or die('Restricted access');
 <div class="row-fluid">
     <div class="span12">
         <a href="https://www.luisorozoli.com" target="_blank">
-            <img src="components/com_phpmyjoomla/assets/images/phpmyjoomla/logo_luisorozoli.png" alt="phpMyJoomla logo" style="max-width: 150px;display: block;margin: auto">
+            <img src="components/com_phpmyjoomla/assets/images/phpmyjoomla/logo_luisorozoli.png" alt="phpMyJoomla logo" style="max-width: 80px;display: block;margin: auto">
         </a>
     </div>
 </div>
