@@ -48,7 +48,7 @@ defined('_JEXEC') or die('Restricted access');
     </p>
     <p>
         <span style="font-weight: bold;font-size: 15px;">### Changed/Update</span><br />
-        - FROM Font awesome 4.7.0. TO Font awesome 5.0.13.<br />
+        - FROM Font awesome 4.7.0. TO Font awesome 5.13.0.<br />
     </p>
     <p>
         <span style="font-weight: bold;font-size: 15px;">### Fixed</span><br />

@@ -23,7 +23,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Button tools used.
 
 ### Changed/Update
-- FROM Font awesome 4.7.0. TO Font awesome 5.0.13.
+- FROM Font awesome 4.7.0. TO Font awesome 5.13.0.
 
 ### Fixed
 - Alert when edit a table item deleted.
