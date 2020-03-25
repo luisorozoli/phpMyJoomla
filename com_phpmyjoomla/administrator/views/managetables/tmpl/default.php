@@ -90,10 +90,8 @@ $configuration_accordion= JComponentHelper::getParams('com_phpmyjoomla')->get('c
                 ?>
             </div>
         </div>
+        <?php echo $this->loadTemplate('footer'); ?>
     </div>
-
-    <?php echo $this->loadTemplate('footer'); ?>
-
 <?php } else { ?>
     <?php echo $this->loadTemplate('header');?>
     <div class="span12">
