@@ -59,6 +59,9 @@ class Com_phpMyJoomlaInstallerScript
 				<img src="components/com_phpmyjoomla/assets/images/phpmyjoomla/php-56x.png" alt="PHP 5.6" align="left" style="padding-right: 5px;" />
 				<img src="components/com_phpmyjoomla/assets/images/phpmyjoomla/php-55x.jpeg" alt="PHP 5.5" align="left" style="padding-right: 5px;" />
 				<img src="components/com_phpmyjoomla/assets/images/phpmyjoomla/php-54x.jpeg" alt="PHP 5.4" align="left" />
+				<a href="https://extensions.joomla.org/extension/phpmyjoomla/" target="_blank" style="float: right;">
+					<img src="components/com_phpmyjoomla/assets/images/phpmyjoomla/joomla-extdev.png" alt="phpMyJoomla JED" align="left" style="max-width: 200px;">
+				</a>
 			</p>
 		</div>
 		<br/>
@@ -94,9 +97,6 @@ class Com_phpMyJoomlaInstallerScript
 			</div>
 
 			<h3>More information about the component in <a href='https://www.phpmyjoomla.com' target="_blank">www.phpmyjoomla.com</a>.</h3><br />
-			<div>
-				<a href="https://extensions.joomla.org/extension/phpmyjoomla/" target="_blank"><img src="components/com_phpmyjoomla/assets/images/phpmyjoomla/joomla-extdev.png" alt="phpMyJoomla JED" align="left" style="max-width: 200px;"></a>
-			</div>
 		<?php
 	}
 
