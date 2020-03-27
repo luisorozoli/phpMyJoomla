@@ -51,7 +51,7 @@ class Pkg_phpMyJoomlaInstallerScript
 			<h3>TOOLS USED</h3>
 			<p>
 				For the development of this component have been used the following tools:<br /><br />
-				<img src="components/com_phpmyjoomla/assets/images/phpmyjoomla/joomla_3x.png" alt="Joomla! 3.6" align="left" style="padding-right: 5px;" />
+				<img src="components/com_phpmyjoomla/assets/images/phpmyjoomla/joomla_3x.png" alt="Joomla! 3.x" align="left" style="padding-right: 5px;" />
 				<img src="components/com_phpmyjoomla/assets/images/phpmyjoomla/joomla_35.png" alt="Joomla! 3.5" align="left" style="padding-right: 5px;" />
 				<img src="components/com_phpmyjoomla/assets/images/phpmyjoomla/joomla_34.png" alt="Joomla! 3.4" align="left" style="padding-right: 5px;" />
 				<img src="components/com_phpmyjoomla/assets/images/phpmyjoomla/joomla_33.png" alt="Joomla! 3.3" align="left" style="padding-right: 5px;" />
@@ -65,15 +65,17 @@ class Pkg_phpMyJoomlaInstallerScript
 
 		<div>
 			<p>
-				- <a href="http://www.component-creator.com/" target="_blank">Component Creator</a><br />
-				- <a href="http://www.datatables.net/" target="_blank">DataTables</a><br />
-				- <a href="http://jquery.com/" target="_blank">JQuery & Ajax</a>
+				- <a href="https://component-creator.com/" target="_blank">Component Creator</a><br />
+				- <a href="https://datatables.net/" target="_blank">DataTables</a><br />
+				- <a href="https://getbootstrap.com/" target="_blank">Bootstrap</a><br />
+				- <a href="https://fontawesome.com/" target="_blank">Font Awesome</a><br />
+				- <a href="https://jquery.com/" target="_blank">JQuery & Ajax</a>
 			</p>
 		</div>
 		<br/>
 
 		<div class="">
-			<h3>FORUM & SUPPORT</h3>
+			<h3>MEMBERS & SUPPORT</h3>
 			<div>
 				<p>
 					Support in English and Spanish!
@@ -91,8 +93,10 @@ class Pkg_phpMyJoomlaInstallerScript
 				<br/>
 			</div>
 
-			<h3>More information about the component in <a href='https://www.phpmyjoomla.com' target="_blank">www.phpmyjoomla.com</a>.</h3>
-
+			<h3>More information about the component in <a href='https://www.phpmyjoomla.com' target="_blank">www.phpmyjoomla.com</a>.</h3><br />
+			<div>
+				<a href="https://extensions.joomla.org/extension/phpmyjoomla/" target="_blank"><img src="components/com_phpmyjoomla/assets/images/phpmyjoomla/joomla-extdev.png" alt="phpMyJoomla JED" align="left" style="max-width: 200px;"></a>
+			</div>
 		<?php
 	}
 
