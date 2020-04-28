@@ -10,6 +10,9 @@
 // No direct access to this file
 
 defined('_JEXEC') or die('Restricted access');
+
+//Component Options
+$ed_inline_editing= JComponentHelper::getParams('com_phpmyjoomla')->get('ed_inline_editing','0');
 ?>
 <head>
     <?php
@@ -45,7 +48,9 @@ defined('_JEXEC') or die('Restricted access');
     $doc->addScript(JURI::root() . 'administrator/components/com_phpmyjoomla/assets/js/dataTables.keyTable.min.js');
     $doc->addScript(JURI::root() . 'administrator/components/com_phpmyjoomla/assets/js/dataTables.select.min.js');
 
-    $doc->addScript(JURI::root() . 'administrator/components/com_phpmyjoomla/assets/js/editor/dataTables.editor.min.js');
+    if ($ed_inline_editing) {
+        $doc->addScript(JURI::root() . 'administrator/components/com_phpmyjoomla/assets/js/editor/dataTables.editor.min.js');
+    }
 
     $doc->addScript(JURI::root() . 'administrator/components/com_phpmyjoomla/assets/js/jquery.modal.min.js');
     $doc->addScript(JURI::root() . 'administrator/components/com_phpmyjoomla/assets/js/phpmyjoomla_js_custom.js');
