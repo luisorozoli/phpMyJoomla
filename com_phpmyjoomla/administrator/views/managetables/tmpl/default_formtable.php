@@ -41,10 +41,10 @@ $ed_custom_query= JComponentHelper::getParams('com_phpmyjoomla')->get('ed_custom
         <?php if ($ed_custom_query) { ?>
             <!--CUSTOM QUERY-->
             <a id="list" style="margin-bottom: 70px;" href="#" class="customquery"><button onclick="setColorCustomQuery('customquery','#eee');" id="customquery" class="shcustom"><?php echo JText::_('COM_PHPMYJOOMLA_SHOWHIDE_CUSTOMQUERY_TEXT_BUTTON');?></button></a>
+            <div class="customquery_toggle" style="overflow: visible; margin: 10px 0 0 0;">
+                <?php echo $this->objTableGen->renderCustomQuery(); ?>
+            </div>
         <?php } ?>
-        <div class="customquery_toggle" style="overflow: visible; margin: 10px 0 0 0;">
-            <?php echo $this->objTableGen->renderCustomQuery(); ?>
-        </div>
         <a id="list" style="margin-bottom: 70px;" href="#" class="togglelink"><button onclick="setColorFilter('btnfilters','#eee');" id="btnfilters" class="shfilters"><?php echo JText::_('COM_PHPMYJOOMLA_SHOWHIDE_TEXT_BUTTON');?></button></a>
         <div class="toggle" style="display: block;">
             <?php if ($custom) { ?>
@@ -62,6 +62,7 @@ $ed_custom_query= JComponentHelper::getParams('com_phpmyjoomla')->get('ed_custom
         </form>
     </div>
 
+<?php if ($ed_custom_query) { ?>
     <script>
         $("#process_custom_query" ).click(function() {
             $("#loaded_server").val($("#select_server").val());
@@ -71,6 +72,7 @@ $ed_custom_query= JComponentHelper::getParams('com_phpmyjoomla')->get('ed_custom
             $("#formcustomquery").submit();
         });
     </script>
+<?php } ?>
 
 <?php if ($custom) { ?>
     <script>
